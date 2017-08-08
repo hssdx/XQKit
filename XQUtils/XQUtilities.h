@@ -112,6 +112,16 @@ return instance; \
 
 #define xq_force_inline __inline__ __attribute__((always_inline))
 
+// TODO 宏，原文 http://blog.sunnyxx.com/2015/03/01/todo-macro/
+#define STRINGIFY(S) #S
+#define DEFER_STRINGIFY(S) STRINGIFY(S)
+#define PRAGMA_MESSAGE(MSG) _Pragma(STRINGIFY(message(MSG)))
+#define FORMATTED_MESSAGE(MSG) "[TODO-" DEFER_STRINGIFY(__COUNTER__) "] " MSG " \n" \
+DEFER_STRINGIFY(__FILE__) " line " DEFER_STRINGIFY(__LINE__)
+#define KEYWORDIFY try {} @catch (...) {}
+// 最终使用下面的宏
+#define TODO(MSG) KEYWORDIFY PRAGMA_MESSAGE(FORMATTED_MESSAGE(MSG))
+
 #pragma mark - 全局内联函数
 extern void xq_dispatch_main_sync_safe(dispatch_block_t block);
 extern void xq_dispatch_main_async_safe(dispatch_block_t block);

@@ -22,17 +22,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
  //
-//  ToastUtils.m
+//  XQToastUtils.m
 //  vsfa
 //
-//  Created by long on 15/7/29.
-//  Copyright © 2015年 long. All rights reserved.
+//  Created by xq on 15/7/29.
+//  Copyright © 2015年 xq. All rights reserved.
 //
 
-#import "ToastUtils.h"
+#import "XQToastUtils.h"
 #import <YYKit.h>
 
-@implementation ToastUtils
+@implementation XQToastUtils
 
 #pragma mark - 显示提示视图
 + (void)show:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2)
@@ -135,7 +135,7 @@ static const CGFloat s_contentHeight = 70;
     static id toast;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        toast = [ToastUtils new];
+        toast = [XQToastUtils new];
     });
     return toast;
 }

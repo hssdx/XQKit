@@ -31,10 +31,10 @@
 		9815CF121F3898A100FD7F6C /* UIViewController+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEFC1F3898A100FD7F6C /* UIViewController+XQUtils.m */; };
 		9815CF131F3898A100FD7F6C /* UIViewController+XQHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEFD1F3898A100FD7F6C /* UIViewController+XQHud.h */; };
 		9815CF141F3898A100FD7F6C /* UIViewController+XQHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEFE1F3898A100FD7F6C /* UIViewController+XQHud.m */; };
-		9815CF1D1F38992D00FD7F6C /* ConstantsUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF151F38992D00FD7F6C /* ConstantsUtils.h */; };
-		9815CF1E1F38992D00FD7F6C /* ConstantsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF161F38992D00FD7F6C /* ConstantsUtils.m */; };
-		9815CF1F1F38992D00FD7F6C /* ToastUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF171F38992D00FD7F6C /* ToastUtils.h */; };
-		9815CF201F38992D00FD7F6C /* ToastUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF181F38992D00FD7F6C /* ToastUtils.m */; };
+		9815CF1D1F38992D00FD7F6C /* XQConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF151F38992D00FD7F6C /* XQConstants.h */; };
+		9815CF1E1F38992D00FD7F6C /* XQConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF161F38992D00FD7F6C /* XQConstants.m */; };
+		9815CF1F1F38992D00FD7F6C /* XQToastUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF171F38992D00FD7F6C /* XQToastUtils.h */; };
+		9815CF201F38992D00FD7F6C /* XQToastUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF181F38992D00FD7F6C /* XQToastUtils.m */; };
 		9815CF211F38992D00FD7F6C /* XQLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF191F38992D00FD7F6C /* XQLog.h */; };
 		9815CF221F38992D00FD7F6C /* XQLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF1A1F38992D00FD7F6C /* XQLog.m */; };
 		9815CF231F38992D00FD7F6C /* XQUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF1B1F38992D00FD7F6C /* XQUtilities.h */; };
@@ -85,10 +85,10 @@
 		9815CEFC1F3898A100FD7F6C /* UIViewController+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQUtils.m"; sourceTree = "<group>"; };
 		9815CEFD1F3898A100FD7F6C /* UIViewController+XQHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XQHud.h"; sourceTree = "<group>"; };
 		9815CEFE1F3898A100FD7F6C /* UIViewController+XQHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQHud.m"; sourceTree = "<group>"; };
-		9815CF151F38992D00FD7F6C /* ConstantsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsUtils.h; sourceTree = "<group>"; };
-		9815CF161F38992D00FD7F6C /* ConstantsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsUtils.m; sourceTree = "<group>"; };
-		9815CF171F38992D00FD7F6C /* ToastUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtils.h; sourceTree = "<group>"; };
-		9815CF181F38992D00FD7F6C /* ToastUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtils.m; sourceTree = "<group>"; };
+		9815CF151F38992D00FD7F6C /* XQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQConstants.h; sourceTree = "<group>"; };
+		9815CF161F38992D00FD7F6C /* XQConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQConstants.m; sourceTree = "<group>"; };
+		9815CF171F38992D00FD7F6C /* XQToastUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQToastUtils.h; sourceTree = "<group>"; };
+		9815CF181F38992D00FD7F6C /* XQToastUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQToastUtils.m; sourceTree = "<group>"; };
 		9815CF191F38992D00FD7F6C /* XQLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQLog.h; sourceTree = "<group>"; };
 		9815CF1A1F38992D00FD7F6C /* XQLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQLog.m; sourceTree = "<group>"; };
 		9815CF1B1F38992D00FD7F6C /* XQUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQUtilities.h; sourceTree = "<group>"; };
@@ -223,10 +223,10 @@
 		9815CF001F3898A100FD7F6C /* XQUtils */ = {
 			isa = PBXGroup;
 			children = (
-				9815CF151F38992D00FD7F6C /* ConstantsUtils.h */,
-				9815CF161F38992D00FD7F6C /* ConstantsUtils.m */,
-				9815CF171F38992D00FD7F6C /* ToastUtils.h */,
-				9815CF181F38992D00FD7F6C /* ToastUtils.m */,
+				9815CF151F38992D00FD7F6C /* XQConstants.h */,
+				9815CF161F38992D00FD7F6C /* XQConstants.m */,
+				9815CF171F38992D00FD7F6C /* XQToastUtils.h */,
+				9815CF181F38992D00FD7F6C /* XQToastUtils.m */,
 				9815CF191F38992D00FD7F6C /* XQLog.h */,
 				9815CF1A1F38992D00FD7F6C /* XQLog.m */,
 				9815CF1B1F38992D00FD7F6C /* XQUtilities.h */,
@@ -256,7 +256,7 @@
 				9815CF011F3898A100FD7F6C /* NSNotificationCenter+XQUtils.h in Headers */,
 				9815CF071F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h in Headers */,
 				9815CF111F3898A100FD7F6C /* UIViewController+XQUtils.h in Headers */,
-				9815CF1D1F38992D00FD7F6C /* ConstantsUtils.h in Headers */,
+				9815CF1D1F38992D00FD7F6C /* XQConstants.h in Headers */,
 				9815CF131F3898A100FD7F6C /* UIViewController+XQHud.h in Headers */,
 				9815CEE01F38972600FD7F6C /* XQKit.h in Headers */,
 				9815CF091F3898A100FD7F6C /* NSObject+XQAuthority.h in Headers */,
@@ -266,7 +266,7 @@
 				9815CF0B1F3898A100FD7F6C /* UIColor+XQUtils.h in Headers */,
 				9815CF2F1F389A1400FD7F6C /* XQShareController.h in Headers */,
 				9815CF031F3898A100FD7F6C /* NSObject+XQNotification.h in Headers */,
-				9815CF1F1F38992D00FD7F6C /* ToastUtils.h in Headers */,
+				9815CF1F1F38992D00FD7F6C /* XQToastUtils.h in Headers */,
 				9815CF051F3898A100FD7F6C /* NSDate+XQUtils.h in Headers */,
 				9815CF0F1F3898A100FD7F6C /* UIView+XQUtils.h in Headers */,
 			);
@@ -412,9 +412,9 @@
 				9815CF0E1F3898A100FD7F6C /* UIResponder+XQEventRouter.m in Sources */,
 				9815CF0C1F3898A100FD7F6C /* UIColor+XQUtils.m in Sources */,
 				9815CF301F389A1400FD7F6C /* XQShareController.m in Sources */,
-				9815CF1E1F38992D00FD7F6C /* ConstantsUtils.m in Sources */,
+				9815CF1E1F38992D00FD7F6C /* XQConstants.m in Sources */,
 				9815CF141F3898A100FD7F6C /* UIViewController+XQHud.m in Sources */,
-				9815CF201F38992D00FD7F6C /* ToastUtils.m in Sources */,
+				9815CF201F38992D00FD7F6C /* XQToastUtils.m in Sources */,
 				9815CF081F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m in Sources */,
 				9815CF061F3898A100FD7F6C /* NSDate+XQUtils.m in Sources */,
 				9815CF041F3898A100FD7F6C /* NSObject+XQNotification.m in Sources */,

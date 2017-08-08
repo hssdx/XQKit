@@ -22,25 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  ConstantsUtils.m
+//  XQConstants.m
 //  IKSarahah
 //
 //  Created by quanxiong on 2017/7/25.
 //  Copyright © 2017年 com.xq. All rights reserved.
 //
 
-#import "ConstantsUtils.h"
+#import "XQConstants.h"
 
-@implementation ConstantsUtils
+NSString *const XQNotifyDemo = @"XQNotifyDemo";
+NSString *const XQEventDemo = @"XQEventDemo";
 
-@end
-
-NSString *const IKSNeedLogoutForSessionExpireNotifyName = @"NeedLogoutForSessionExpire";
-NSString *const IKSSendSuccessNotifyName = @"SendSuccess";
-NSString *const IKSNewCommentNotifyName = @"DidFetchComment";
-NSString *const IKSRemoveCommentBadgeNotifyName = @"RemoveCommentBadge";
-
-NSString *const IKSEventShareComment = @"ShareComment";
-NSString *const IKSEventDeleteComment = @"DeleteComment";
-NSString *const IKSEventShieldComment = @"ShieldComment";
-NSString *const IKSEventReportComment = @"ReportComment";

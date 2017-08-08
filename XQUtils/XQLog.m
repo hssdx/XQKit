@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "XQLog.h"
-#import "ToastUtils.h"
+#import "XQToastUtils.h"
 #import "XQUtilities.h"
 #import <YYKit.h>
 
