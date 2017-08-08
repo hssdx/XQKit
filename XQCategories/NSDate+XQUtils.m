@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "NSDate+XQUtils.h"
-#import <YYKit.h>
+#import <YYKit/YYKit.h>
 
 @implementation NSDate (XQUtils)
 

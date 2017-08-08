@@ -34,8 +34,8 @@ SOFTWARE.
 #import "XQLog.h"
 #import "UIViewController+XQUtils.h"
 #import "UIView+XQUtils.h"
-#import <YYKit.h>
-#import <Masonry.h>
+#import <YYKit/YYKit.h>
+#import <Masonry/Masonry.h>
 
 static CGFloat const kDuration = 0.3;
 

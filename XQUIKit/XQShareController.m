@@ -33,8 +33,8 @@ SOFTWARE.
 #import "XQGridlineView.h"
 #import "UIColor+XQUtils.h"
 #import "UIView+XQUtils.h"
-#import <Masonry.h>
-#import <YYKit.h>
+#import <Masonry/Masonry.h>
+#import <YYKit/YYKit.h>
 
 static const CGFloat kTitleHeight = 40;
 

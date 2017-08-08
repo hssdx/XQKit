@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "XQToastUtils.h"
-#import <YYKit.h>
+#import <YYKit/YYKit.h>
 
 @implementation XQToastUtils
 

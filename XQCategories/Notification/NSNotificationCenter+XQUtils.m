@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "NSNotificationCenter+XQUtils.h"
-#import <NSNotificationCenter+YYAdd.h>
+#import <YYKit/YYKit.h>
 #import "XQUtilities.h"
 
 static NSString *const kActionAddName = @"Add";

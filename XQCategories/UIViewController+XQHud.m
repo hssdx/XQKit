@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "UIViewController+XQHud.h"
-#import <MBProgressHUD.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @implementation UIViewController (XQHud)
 

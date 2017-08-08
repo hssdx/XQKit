@@ -32,7 +32,7 @@ SOFTWARE.
 #import "XQLog.h"
 #import "XQToastUtils.h"
 #import "XQUtilities.h"
-#import <YYKit.h>
+#import <YYKit/YYKit.h>
 
 static BOOL s_hasCleaned = NO;
 

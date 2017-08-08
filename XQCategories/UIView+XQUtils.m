@@ -30,7 +30,7 @@ SOFTWARE.
 //
 
 #import "UIView+XQUtils.h"
-#import <YYKit.h>
+#import <YYKit/YYKit.h>
 
 @implementation UIView (XQUtils)
 

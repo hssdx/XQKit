@@ -122,17 +122,19 @@ DEFER_STRINGIFY(__FILE__) " line " DEFER_STRINGIFY(__LINE__)
 // 最终使用下面的宏
 #define TODO(MSG) KEYWORDIFY PRAGMA_MESSAGE(FORMATTED_MESSAGE(MSG))
 
+
+#ifndef XQSYNTH_DUMMY_CLASS
+#define XQSYNTH_DUMMY_CLASS(_name_) \
+@interface XQSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
+@implementation XQSYNTH_DUMMY_CLASS_ ## _name_ @end
+#endif
+
 #pragma mark - 全局内联函数
 extern void xq_dispatch_main_sync_safe(dispatch_block_t block);
 extern void xq_dispatch_main_async_safe(dispatch_block_t block);
 extern void xq_dispatch_global_async_if_need(dispatch_block_t block);
 extern void xq_dispatch_global_then_dispatch_main_queue(dispatch_block_t global_block, dispatch_block_t main_block);
 
-#if todo
-extern NSIndexPath *xq_index_path_by_index_with_row_sum(NSArray<NSNumber *> *rowSumDatas, NSInteger index);
-extern NSInteger xq_index_by_index_path_with_row_sum(NSArray<NSNumber *> *rowSumDatas, NSIndexPath *indexPath);
-extern id xq_obj_for_class(id _id, Class cls);
-#endif
 
 #endif /* XQUtilities_h */
 

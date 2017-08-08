@@ -35,7 +35,7 @@ SOFTWARE.
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
-#import <YYKit.h>
+#import <YYKit/YYKit.h>
 
 static NSString *s_sysSettingsDateAndTime = @"prefs:root=General&path=DATE_AND_TIME";
 static NSString *s_sysSettingsDateAndTimeiOS10 = @"Prefs:root=General&path=DATE_AND_TIME";
@@ -99,7 +99,10 @@ static NSString *s_osURLSelName;
         if (kiOS10Later) {
             [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
             [[UIApplication sharedApplication] openURL:url];
+#pragma clang diagnostic pop
         }
     }
 }
@@ -110,7 +113,10 @@ static NSString *s_osURLSelName;
         if (kiOS10Later) {
             [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
             [[UIApplication sharedApplication] openURL:url];
+#pragma clang diagnostic pop
         }
     }
 }
@@ -152,18 +158,24 @@ static NSString *s_osURLSelName;
         [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
         return (status == CNAuthorizationStatusAuthorized || status == CNAuthorizationStatusNotDetermined);
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
         ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
         return (status == kABAuthorizationStatusAuthorized || status == kABAuthorizationStatusNotDetermined);
+#pragma clang diagnostic pop
     }
 }
 
 - (BOOL)judgeIsHaveNotificationAuthority {
     if (kiOS10Later) {
-#warning todo_must
+        @TODO("Do not forget it");
     }
     if (kiOS8Later) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
         UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
         return UIUserNotificationTypeNone != setting.types;
+#pragma clang diagnostic pop
     }
     return NO;
 }
