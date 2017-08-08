@@ -76,6 +76,17 @@ extern xq_force_inline void xq_dispatch_global_then_dispatch_main_queue(dispatch
     });
 }
 
+extern xq_force_inline id xq_obj_for_class(id _id, Class cls) {
+    if (nil == _id) {
+        return nil;
+    }
+    XQAssert([_id isKindOfClass:cls]);
+    if ([_id isKindOfClass:cls]) {
+        return _id;
+    }
+    return nil;
+}
+
 #if 0
 NSInteger xq_find_section_by_index_with_row_sum(NSArray<NSNumber *> *rowSumDatas, NSInteger index) {
     // 2 分法找出 section 所在的位置
@@ -125,16 +136,6 @@ extern xq_force_inline NSInteger xq_index_by_index_path_with_row_sum(NSArray<NSN
         index = rowSumDatas[indexPath.section - 1].integerValue + indexPath.row;
     }
     return index;
-}
-extern xq_force_inline id xq_obj_for_class(id _id, Class cls) {
-    if (nil == _id) {
-        return nil;
-    }
-    XQAssert([_id isKindOfClass:cls]);
-    if ([_id isKindOfClass:cls]) {
-        return _id;
-    }
-    return nil;
 }
 #endif
 

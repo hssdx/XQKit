@@ -29,6 +29,8 @@ SOFTWARE.
 //  Copyright © 2016年 xunquan. All rights reserved.
 //
 
+#import "XQLog.h"
+
 #ifndef XQUtilities_h
 #define XQUtilities_h
 
@@ -134,7 +136,7 @@ extern void xq_dispatch_main_sync_safe(dispatch_block_t block);
 extern void xq_dispatch_main_async_safe(dispatch_block_t block);
 extern void xq_dispatch_global_async_if_need(dispatch_block_t block);
 extern void xq_dispatch_global_then_dispatch_main_queue(dispatch_block_t global_block, dispatch_block_t main_block);
-
+extern id xq_obj_for_class(id _id, Class cls);
 
 #endif /* XQUtilities_h */
 

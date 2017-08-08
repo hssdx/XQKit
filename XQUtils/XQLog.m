@@ -39,11 +39,11 @@ static BOOL s_hasCleaned = NO;
 @implementation XQLog
 
 + (instancetype)logWithLevel:(XQLogLevel)level {
-    XQLog *pushLog = [XQLog new];
-    pushLog.time = @([[NSDate date] timeIntervalSince1970]);
-    pushLog.level = @(level);
-    pushLog.device = [UIDevice currentDevice].name;
-    return pushLog;
+    XQLog *log = [XQLog new];
+    log.time = @([[NSDate date] timeIntervalSince1970]);
+    log.level = @(level);
+    log.device = [UIDevice currentDevice].name;
+    return log;
 }
 
 + (void)_showLogLevel:(XQLogLevel)level content:(NSString *)content {
@@ -88,12 +88,12 @@ static BOOL s_hasCleaned = NO;
 }
 
 + (void)_logLevel:(XQLogLevel)level content:(NSString *)content {
-    XQLog *pushLog = [XQLog logWithLevel:level];
-    pushLog.content = content;
+    XQLog *log = [XQLog logWithLevel:level];
+    log.content = content;
 #if 0
     if ([XQLog tableExisted]) {
         [self cleanCache];
-        [pushLog save];
+        [log save];
     }
 #endif
     [self _showLogLevel:level content:content];
@@ -144,17 +144,17 @@ extern xq_force_inline void _XQAssertOutput(const char * szFunction,
                                              int nLine,
                                              const char *szExpression)
 {
-    XQLog *pushLog = [XQLog logWithLevel:XQLogLevelError];
-    pushLog.assertInfo =
+    XQLog *log = [XQLog logWithLevel:XQLogLevelError];
+    log.assertInfo =
     [NSString stringWithFormat:@"!断言: %s at %s %s:%d\n", szExpression, szFunction, szFile, nLine];
 #if 0
     if ([XQLog tableExisted]) {
-        [pushLog save];
+        [log save];
     }
 #endif
-    [XQLog _showLogLevel:XQLogLevelError content:pushLog.assertInfo];
+    [XQLog _showLogLevel:XQLogLevelError content:log.assertInfo];
 #if DEBUG
-    NSLog(@"!出现断言，请务必认真对待【%@】", pushLog.assertInfo);
+    NSLog(@"!出现断言，请务必认真对待【%@】", log.assertInfo);
     xq_dispatch_main_async_safe(^{
         [NSThread sleepForTimeInterval:5];
     });
