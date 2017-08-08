@@ -1,49 +1,39 @@
 function filtCodeFile()
 {
-	#if ["${filename##*.}" = ""]; then
-		#statements
-	#fi
 	filename="$1"
-	#returnValue=0
-	#echo ${filename##*.}
+	filepath="$2/$1"
+	blackList="Pods"
+	if [[ $filepath =~ $blackList ]]; then
+		return 1
+	fi
 	if [ "${filename##*.}" = "h" -o "${filename##*.}" == "m" ]; then
-		#echo $1
-		echo "start add license [$1]"
-		#[[ $str =~ "this" ]] && echo "\$str contains this" 
-		if [ `grep "error" file.txt  &>> error.txt` ] ;then
-			cat file.txt
+		if [ ! -z "`grep "MIT License" $filepath`" ]; then
+			echo "[$filepath] aleady has license describe."
+			#test
 		else
-			echo 'no error find in file.txt'
+			echo "/* " > ./copy_license_file.txt
+			cat "./LICENSE" >> ./copy_license_file.txt
+			echo " */" >> ./copy_license_file.txt
+			cat "$filepath" >> ./copy_license_file.txt
+			mv ./copy_license_file.txt $filepath
+			echo "[$filepath] add license finish!"
 		fi
 	fi
-	
-	#echo "null"
 }
 
-function listFiles()
+function traversingFiles()
 {
 	#1st param, the dir name
-	#2nd param, the aligning space
 	for file in `ls $1`;
 	do
 		if [ -d "$1/$file" ]; then
-			filtCodeFile $file
-			#echo $?
-			#echo result
-			#if [ $file == *.h$ -o $file == *.m$ ]; then
-			#	echo "$2$file"
-			#fi
-			#echo "$2$file"
-			listFiles "$1/$file" "   $2"
+			#filtCodeFile $file $1
+			traversingFiles "$1/$file" "$1"
 		else
-			#if [[ $file == *.h$ -or $file == *.m$]]; then
-			#	echo "$2$file"
-			#fi
-			filtCodeFile $file
-			#echo $?
-			#echo result
+			filtCodeFile $file $1
 		fi
 	done
+	rm -f ./copy_license_file.txt
 }
 
-listFiles $1 ""
+traversingFiles "."
