@@ -29,8 +29,8 @@ SOFTWARE.
 //  Copyright © 2016年 xunquan. All rights reserved.
 //
 
-#import "XQUtilities.h"
 #import <Foundation/Foundation.h>
+#import "XQUtilities.h"
 #import <YYKit/YYKit.h>
 
 extern xq_force_inline void xq_dispatch_main_sync_safe(dispatch_block_t block) {
