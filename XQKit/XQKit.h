@@ -40,4 +40,22 @@ FOUNDATION_EXPORT const unsigned char XQKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <XQKit/PublicHeader.h>
 
+#import <XQKit/NSDate+XQUtils.h>
+#import <XQKit/NSMutableAttributedString+XQUtils.h>
+#import <XQKit/NSObject+XQAuthority.h>
+#import <XQKit/NSNotificationCenter+XQUtils.h>
+#import <XQKit/NSObject+XQNotification.h>
+#import <XQKit/UIColor+XQUtils.h>
+#import <XQKit/UIResponder+XQEventRouter.h>
+#import <XQKit/UIView+XQUtils.h>
+#import <XQKit/UIViewController+XQHud.h>
+#import <XQKit/UIViewController+XQUtils.h>
+#import <XQKit/XQGridlineView.h>
+#import <XQKit/XQPopupControllerBase.h>
+#import <XQKit/XQShareController.h>
+#import <XQKit/XQConstants.h>
+#import <XQKit/XQLog.h>
+#import <XQKit/XQToastUtils.h>
+#import <XQKit/XQUtilities.h>
+
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XQKit"
-  s.version      = "1.0"
+  s.version      = "1.2"
   s.summary      = "XQKit is useful kit."
 
   s.description  = <<-DESC
