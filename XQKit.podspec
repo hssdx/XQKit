@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XQKit"
-  s.version      = "1.3"
+  s.version      = "1.4"
   s.summary      = "XQKit is useful kit."
 
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.public_header_files = "XQKit/XQKit.h", "XQCategories/*.{h}", "XQCategories/**/*.{h}", "XQUIKit/*.{h}", "XQUIKit/**/*.{h}", "XQUtils/*.{h}", "XQUtils/**/*.{h}"
 
 
-  s.frameworks = "CoreFoundation", "UIKit", "YYKit", "MBProgressHUD", "Masonry"
+  s.frameworks = "CoreFoundation", "UIKit"
   #s.framework  = "UIKit" 
 
   # s.library   = "iconv" 
