@@ -31,6 +31,31 @@ SOFTWARE.
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, XQPopupStyle) {
+    XQPopupStyleCenter,
+    XQPopupStyleTop,
+    XQPopupStyleLeft,
+    XQPopupStyleBottom,
+    XQPopupStyleRight,
+    XQPopupStyleLeftTop,
+    XQPopupStyleLeftBottom,
+    XQPopupStyleRightBottom,
+    XQPopupStyleRightTop,
+};
+
+typedef NS_ENUM(NSInteger, XQPopupAnimation) {
+    XQPopupAnimationCenter,
+    XQPopupAnimationTop,
+    XQPopupAnimationLeft,
+    XQPopupAnimationBottom,
+    XQPopupAnimationRight,
+};
+
+typedef NS_ENUM(NSInteger, XQPopupCoreSize) {
+    XQPopupCoreSizeEqualScreen,
+    XQPopupCoreSizeLessScreen,
+};
+
 @class XQPopupControllerBase;
 
 @protocol XQPopupControllerDelegate <NSObject>
@@ -48,10 +73,20 @@ SOFTWARE.
 @property (assign, nonatomic, readonly) BOOL onbusy;
 @property (weak, nonatomic) id<XQPopupControllerDelegate> delegate;
 
+//宽度，默认等于屏幕宽度，当 coreViewWidth 小于 1 时，取屏幕宽度
+//不会超过屏幕宽度
+@property (assign, nonatomic) CGFloat coreViewWidth;
+//高度，默认 150
+//不会超过屏幕高度
+@property (assign, nonatomic) CGFloat coreViewHeight;
+//布局样式
+@property (assign, nonatomic) XQPopupStyle style;
+@property (assign, nonatomic) XQPopupAnimation animationType;
+
 #pragma mark - override
-- (CGFloat)coreViewHeight;
-- (void)configSubviews __attribute__((objc_requires_super));
 - (void)setupSubViews __attribute__((objc_requires_super));
+- (void)configSubviews __attribute__((objc_requires_super));
+- (void)makeConstraint __attribute__((objc_requires_super));
 
 - (void)animatedExit;
 

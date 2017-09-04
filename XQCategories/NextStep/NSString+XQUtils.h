@@ -22,38 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  UIResponder+XQEventRouter.m
-//  IKSarahah
+//  NSString+XQUtils.h
+//  XQKit
 //
-//  Created by quanxiong on 2017/8/3.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by quanxiong on 2017/8/25.
+//  Copyright © 2017年 xun.quan. All rights reserved.
 //
 
-#import "UIResponder+XQEventRouter.h"
-#import "XQLog.h"
+#import <Foundation/Foundation.h>
 
-@implementation UIResponder (XQEventRouter)
+@interface NSString (XQUtils)
 
-- (void)routEvent:(NSString *)eventName {
-    if (self.nextResponder) {
-        [self.nextResponder routEvent:eventName info:nil sender:self];
-    }
-}
+- (BOOL)xq_isPhoneNumber;
 
-- (void)routEvent:(NSString *)eventName info:(NSDictionary *)info {
-    if (self.nextResponder) {
-        [self.nextResponder routEvent:eventName info:info sender:self];
-    }
-}
+- (instancetype)xq_transformToPhone;
 
-- (void)routEvent:(NSString *)eventName info:(NSDictionary *)info sender:(id)sender {
-    if (eventName.length == 0) {
-        XQAssert(eventName.length);
-        return;
-    }
-    if (self.nextResponder) {
-        [self.nextResponder routEvent:eventName info:info sender:sender];
-    }
-}
+- (instancetype)xq_stringByTrimmingSpecial;
+- (instancetype)xq_stringByTrimmingWhitespace;
+- (instancetype)xq_lastChar;
+
++ (instancetype)xq_rawUUID;
++ (instancetype)xq_rawDeviceId;
 
 @end

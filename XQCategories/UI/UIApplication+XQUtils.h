@@ -22,20 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  UIView+XQUtils.h
-//  XQ
+//  UIApplication+XQUtils.h
+//  XQKit
 //
-//  Created by xiongxunquan on 2017/5/16.
-//  Copyright © 2017年 xunquan. All rights reserved.
+//  Created by quanxiong on 2017/9/3.
+//  Copyright © 2017年 com.hssdx. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (XQUtils)
+@interface UIApplication (XQUtils)
 
-- (void)addTapAction:(void (^)(id sender))action;
-- (void)addTapAction:(void (^)(id sender))action withTimes:(NSInteger)times;
-- (void)addLongPressAction:(void (^)(id sender))action;
-- (void)addPanAction:(void (^)(UIPanGestureRecognizer *gesture))action;
++ (BOOL)xq_runningInBackground;
++ (BOOL)xq_runningInActive;
 
 @end

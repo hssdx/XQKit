@@ -22,15 +22,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
+//  UIResponder+XQEventRouter.m
 //  XQKit
 //
-//  Created by quanxiong on 2017/7/25.
+//  Created by quanxiong on 2017/8/3.
 //  Copyright © 2017年 com.xq. All rights reserved.
 //
 
-#import "XQConstants.h"
+#import "UIResponder+XQEventRouter.h"
+#import "XQLog.h"
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
+@implementation UIResponder (XQEventRouter)
 
+- (void)routEvent:(NSString *)eventName {
+    [self routEvent:eventName info:nil sender:self];
+}
+
+- (void)routEvent:(NSString *)eventName info:(NSDictionary *)info {
+    [self routEvent:eventName info:info sender:self];
+}
+
+- (void)routEvent:(NSString *)eventName info:(NSDictionary *)info sender:(id)sender {
+    if (eventName.length == 0) {
+        XQAssert(eventName.length);
+        return;
+    }
+    if (self.nextResponder) {
+        [self.nextResponder routEvent:eventName info:info sender:sender];
+    }
+}
+
+@end

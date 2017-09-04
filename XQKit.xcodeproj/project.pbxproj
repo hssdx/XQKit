@@ -15,22 +15,6 @@
 		9815CF021F3898A100FD7F6C /* NSNotificationCenter+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEEC1F3898A100FD7F6C /* NSNotificationCenter+XQUtils.m */; };
 		9815CF031F3898A100FD7F6C /* NSObject+XQNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEED1F3898A100FD7F6C /* NSObject+XQNotification.h */; };
 		9815CF041F3898A100FD7F6C /* NSObject+XQNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEEE1F3898A100FD7F6C /* NSObject+XQNotification.m */; };
-		9815CF051F3898A100FD7F6C /* NSDate+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEEF1F3898A100FD7F6C /* NSDate+XQUtils.h */; };
-		9815CF061F3898A100FD7F6C /* NSDate+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEF01F3898A100FD7F6C /* NSDate+XQUtils.m */; };
-		9815CF071F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEF11F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h */; };
-		9815CF081F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEF21F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m */; };
-		9815CF091F3898A100FD7F6C /* NSObject+XQAuthority.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEF31F3898A100FD7F6C /* NSObject+XQAuthority.h */; };
-		9815CF0A1F3898A100FD7F6C /* NSObject+XQAuthority.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEF41F3898A100FD7F6C /* NSObject+XQAuthority.m */; };
-		9815CF0B1F3898A100FD7F6C /* UIColor+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEF51F3898A100FD7F6C /* UIColor+XQUtils.h */; };
-		9815CF0C1F3898A100FD7F6C /* UIColor+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEF61F3898A100FD7F6C /* UIColor+XQUtils.m */; };
-		9815CF0D1F3898A100FD7F6C /* UIResponder+XQEventRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEF71F3898A100FD7F6C /* UIResponder+XQEventRouter.h */; };
-		9815CF0E1F3898A100FD7F6C /* UIResponder+XQEventRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEF81F3898A100FD7F6C /* UIResponder+XQEventRouter.m */; };
-		9815CF0F1F3898A100FD7F6C /* UIView+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEF91F3898A100FD7F6C /* UIView+XQUtils.h */; };
-		9815CF101F3898A100FD7F6C /* UIView+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEFA1F3898A100FD7F6C /* UIView+XQUtils.m */; };
-		9815CF111F3898A100FD7F6C /* UIViewController+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEFB1F3898A100FD7F6C /* UIViewController+XQUtils.h */; };
-		9815CF121F3898A100FD7F6C /* UIViewController+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEFC1F3898A100FD7F6C /* UIViewController+XQUtils.m */; };
-		9815CF131F3898A100FD7F6C /* UIViewController+XQHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CEFD1F3898A100FD7F6C /* UIViewController+XQHud.h */; };
-		9815CF141F3898A100FD7F6C /* UIViewController+XQHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CEFE1F3898A100FD7F6C /* UIViewController+XQHud.m */; };
 		9815CF1D1F38992D00FD7F6C /* XQConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF151F38992D00FD7F6C /* XQConstants.h */; };
 		9815CF1E1F38992D00FD7F6C /* XQConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF161F38992D00FD7F6C /* XQConstants.m */; };
 		9815CF1F1F38992D00FD7F6C /* XQToastUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF171F38992D00FD7F6C /* XQToastUtils.h */; };
@@ -45,6 +29,40 @@
 		9815CF2E1F389A1400FD7F6C /* XQPopupControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF281F389A1400FD7F6C /* XQPopupControllerBase.m */; };
 		9815CF2F1F389A1400FD7F6C /* XQShareController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9815CF291F389A1400FD7F6C /* XQShareController.h */; };
 		9815CF301F389A1400FD7F6C /* XQShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9815CF2A1F389A1400FD7F6C /* XQShareController.m */; };
+		98B193911F5BF529003ADE7A /* NSArray+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193721F5BF529003ADE7A /* NSArray+XQUtils.h */; };
+		98B193921F5BF529003ADE7A /* NSArray+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193731F5BF529003ADE7A /* NSArray+XQUtils.m */; };
+		98B193931F5BF529003ADE7A /* NSDate+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193741F5BF529003ADE7A /* NSDate+XQUtils.h */; };
+		98B193941F5BF529003ADE7A /* NSDate+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193751F5BF529003ADE7A /* NSDate+XQUtils.m */; };
+		98B193951F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193761F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.h */; };
+		98B193961F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193771F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.m */; };
+		98B193971F5BF529003ADE7A /* NSObject+XQAuthority.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193781F5BF529003ADE7A /* NSObject+XQAuthority.h */; };
+		98B193981F5BF529003ADE7A /* NSObject+XQAuthority.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193791F5BF529003ADE7A /* NSObject+XQAuthority.m */; };
+		98B193991F5BF529003ADE7A /* NSString+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B1937A1F5BF529003ADE7A /* NSString+XQUtils.h */; };
+		98B1939A1F5BF529003ADE7A /* NSString+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B1937B1F5BF529003ADE7A /* NSString+XQUtils.m */; };
+		98B1939B1F5BF529003ADE7A /* UIApplication+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B1937D1F5BF529003ADE7A /* UIApplication+XQUtils.h */; };
+		98B1939C1F5BF529003ADE7A /* UIApplication+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B1937E1F5BF529003ADE7A /* UIApplication+XQUtils.m */; };
+		98B1939D1F5BF529003ADE7A /* UIButton+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B1937F1F5BF529003ADE7A /* UIButton+XQUtils.h */; };
+		98B1939E1F5BF529003ADE7A /* UIButton+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193801F5BF529003ADE7A /* UIButton+XQUtils.m */; };
+		98B1939F1F5BF529003ADE7A /* UIColor+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193811F5BF529003ADE7A /* UIColor+XQUtils.h */; };
+		98B193A01F5BF529003ADE7A /* UIColor+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193821F5BF529003ADE7A /* UIColor+XQUtils.m */; };
+		98B193A11F5BF529003ADE7A /* UIImage+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193831F5BF529003ADE7A /* UIImage+XQUtils.h */; };
+		98B193A21F5BF529003ADE7A /* UIImage+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193841F5BF529003ADE7A /* UIImage+XQUtils.m */; };
+		98B193A31F5BF529003ADE7A /* UIResponder+XQEventRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193851F5BF529003ADE7A /* UIResponder+XQEventRouter.h */; };
+		98B193A41F5BF529003ADE7A /* UIResponder+XQEventRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193861F5BF529003ADE7A /* UIResponder+XQEventRouter.m */; };
+		98B193A71F5BF529003ADE7A /* UIView+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193891F5BF529003ADE7A /* UIView+XQUtils.h */; };
+		98B193A81F5BF529003ADE7A /* UIView+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B1938A1F5BF529003ADE7A /* UIView+XQUtils.m */; };
+		98B193AB1F5BF529003ADE7A /* UIViewController+XQHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B1938D1F5BF529003ADE7A /* UIViewController+XQHud.h */; };
+		98B193AC1F5BF529003ADE7A /* UIViewController+XQHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B1938E1F5BF529003ADE7A /* UIViewController+XQHud.m */; };
+		98B193AD1F5BF529003ADE7A /* UIViewController+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B1938F1F5BF529003ADE7A /* UIViewController+XQUtils.h */; };
+		98B193AE1F5BF529003ADE7A /* UIViewController+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193901F5BF529003ADE7A /* UIViewController+XQUtils.m */; };
+		98B193B11F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193AF1F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.h */; };
+		98B193B21F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193B01F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.m */; };
+		98B193B51F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193B31F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.h */; };
+		98B193B61F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193B41F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.m */; };
+		98B193B91F5D309D003ADE7A /* XQRoundImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193B71F5D309D003ADE7A /* XQRoundImageView.h */; };
+		98B193BA1F5D309D003ADE7A /* XQRoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193B81F5D309D003ADE7A /* XQRoundImageView.m */; };
+		98B193BD1F5D31DE003ADE7A /* NSDictionary+XQUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 98B193BB1F5D31DE003ADE7A /* NSDictionary+XQUtils.h */; };
+		98B193BE1F5D31DE003ADE7A /* NSDictionary+XQUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B193BC1F5D31DE003ADE7A /* NSDictionary+XQUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,22 +87,6 @@
 		9815CEEC1F3898A100FD7F6C /* NSNotificationCenter+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+XQUtils.m"; sourceTree = "<group>"; };
 		9815CEED1F3898A100FD7F6C /* NSObject+XQNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XQNotification.h"; sourceTree = "<group>"; };
 		9815CEEE1F3898A100FD7F6C /* NSObject+XQNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XQNotification.m"; sourceTree = "<group>"; };
-		9815CEEF1F3898A100FD7F6C /* NSDate+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XQUtils.h"; sourceTree = "<group>"; };
-		9815CEF01F3898A100FD7F6C /* NSDate+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XQUtils.m"; sourceTree = "<group>"; };
-		9815CEF11F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+XQUtils.h"; sourceTree = "<group>"; };
-		9815CEF21F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+XQUtils.m"; sourceTree = "<group>"; };
-		9815CEF31F3898A100FD7F6C /* NSObject+XQAuthority.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XQAuthority.h"; sourceTree = "<group>"; };
-		9815CEF41F3898A100FD7F6C /* NSObject+XQAuthority.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XQAuthority.m"; sourceTree = "<group>"; };
-		9815CEF51F3898A100FD7F6C /* UIColor+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XQUtils.h"; sourceTree = "<group>"; };
-		9815CEF61F3898A100FD7F6C /* UIColor+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XQUtils.m"; sourceTree = "<group>"; };
-		9815CEF71F3898A100FD7F6C /* UIResponder+XQEventRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+XQEventRouter.h"; sourceTree = "<group>"; };
-		9815CEF81F3898A100FD7F6C /* UIResponder+XQEventRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+XQEventRouter.m"; sourceTree = "<group>"; };
-		9815CEF91F3898A100FD7F6C /* UIView+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XQUtils.h"; sourceTree = "<group>"; };
-		9815CEFA1F3898A100FD7F6C /* UIView+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XQUtils.m"; sourceTree = "<group>"; };
-		9815CEFB1F3898A100FD7F6C /* UIViewController+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XQUtils.h"; sourceTree = "<group>"; };
-		9815CEFC1F3898A100FD7F6C /* UIViewController+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQUtils.m"; sourceTree = "<group>"; };
-		9815CEFD1F3898A100FD7F6C /* UIViewController+XQHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XQHud.h"; sourceTree = "<group>"; };
-		9815CEFE1F3898A100FD7F6C /* UIViewController+XQHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQHud.m"; sourceTree = "<group>"; };
 		9815CF151F38992D00FD7F6C /* XQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQConstants.h; sourceTree = "<group>"; };
 		9815CF161F38992D00FD7F6C /* XQConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQConstants.m; sourceTree = "<group>"; };
 		9815CF171F38992D00FD7F6C /* XQToastUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQToastUtils.h; sourceTree = "<group>"; };
@@ -99,6 +101,40 @@
 		9815CF281F389A1400FD7F6C /* XQPopupControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQPopupControllerBase.m; sourceTree = "<group>"; };
 		9815CF291F389A1400FD7F6C /* XQShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQShareController.h; sourceTree = "<group>"; };
 		9815CF2A1F389A1400FD7F6C /* XQShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQShareController.m; sourceTree = "<group>"; };
+		98B193721F5BF529003ADE7A /* NSArray+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+XQUtils.h"; sourceTree = "<group>"; };
+		98B193731F5BF529003ADE7A /* NSArray+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XQUtils.m"; sourceTree = "<group>"; };
+		98B193741F5BF529003ADE7A /* NSDate+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XQUtils.h"; sourceTree = "<group>"; };
+		98B193751F5BF529003ADE7A /* NSDate+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XQUtils.m"; sourceTree = "<group>"; };
+		98B193761F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+XQUtils.h"; sourceTree = "<group>"; };
+		98B193771F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+XQUtils.m"; sourceTree = "<group>"; };
+		98B193781F5BF529003ADE7A /* NSObject+XQAuthority.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XQAuthority.h"; sourceTree = "<group>"; };
+		98B193791F5BF529003ADE7A /* NSObject+XQAuthority.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XQAuthority.m"; sourceTree = "<group>"; };
+		98B1937A1F5BF529003ADE7A /* NSString+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XQUtils.h"; sourceTree = "<group>"; };
+		98B1937B1F5BF529003ADE7A /* NSString+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XQUtils.m"; sourceTree = "<group>"; };
+		98B1937D1F5BF529003ADE7A /* UIApplication+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+XQUtils.h"; sourceTree = "<group>"; };
+		98B1937E1F5BF529003ADE7A /* UIApplication+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+XQUtils.m"; sourceTree = "<group>"; };
+		98B1937F1F5BF529003ADE7A /* UIButton+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XQUtils.h"; sourceTree = "<group>"; };
+		98B193801F5BF529003ADE7A /* UIButton+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XQUtils.m"; sourceTree = "<group>"; };
+		98B193811F5BF529003ADE7A /* UIColor+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XQUtils.h"; sourceTree = "<group>"; };
+		98B193821F5BF529003ADE7A /* UIColor+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XQUtils.m"; sourceTree = "<group>"; };
+		98B193831F5BF529003ADE7A /* UIImage+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XQUtils.h"; sourceTree = "<group>"; };
+		98B193841F5BF529003ADE7A /* UIImage+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XQUtils.m"; sourceTree = "<group>"; };
+		98B193851F5BF529003ADE7A /* UIResponder+XQEventRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+XQEventRouter.h"; sourceTree = "<group>"; };
+		98B193861F5BF529003ADE7A /* UIResponder+XQEventRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+XQEventRouter.m"; sourceTree = "<group>"; };
+		98B193891F5BF529003ADE7A /* UIView+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XQUtils.h"; sourceTree = "<group>"; };
+		98B1938A1F5BF529003ADE7A /* UIView+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XQUtils.m"; sourceTree = "<group>"; };
+		98B1938D1F5BF529003ADE7A /* UIViewController+XQHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XQHud.h"; sourceTree = "<group>"; };
+		98B1938E1F5BF529003ADE7A /* UIViewController+XQHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQHud.m"; sourceTree = "<group>"; };
+		98B1938F1F5BF529003ADE7A /* UIViewController+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XQUtils.h"; sourceTree = "<group>"; };
+		98B193901F5BF529003ADE7A /* UIViewController+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XQUtils.m"; sourceTree = "<group>"; };
+		98B193AF1F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ABPeoplePickerNavigationController+XQUtils.h"; sourceTree = "<group>"; };
+		98B193B01F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ABPeoplePickerNavigationController+XQUtils.m"; sourceTree = "<group>"; };
+		98B193B31F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CNContactPickerViewController+XQUtils.h"; sourceTree = "<group>"; };
+		98B193B41F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CNContactPickerViewController+XQUtils.m"; sourceTree = "<group>"; };
+		98B193B71F5D309D003ADE7A /* XQRoundImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQRoundImageView.h; sourceTree = "<group>"; };
+		98B193B81F5D309D003ADE7A /* XQRoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQRoundImageView.m; sourceTree = "<group>"; };
+		98B193BB1F5D31DE003ADE7A /* NSDictionary+XQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+XQUtils.h"; sourceTree = "<group>"; };
+		98B193BC1F5D31DE003ADE7A /* NSDictionary+XQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+XQUtils.m"; sourceTree = "<group>"; };
 		A7ED442508A7C970ADDD14BA /* Pods-XQKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XQKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-XQKit/Pods-XQKit.release.xcconfig"; sourceTree = "<group>"; };
 		E11183923C6C97E396260EDA /* libPods-XQKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XQKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -175,23 +211,9 @@
 		9815CEE91F3898A100FD7F6C /* XQCategories */ = {
 			isa = PBXGroup;
 			children = (
+				98B193711F5BF529003ADE7A /* NextStep */,
+				98B1937C1F5BF529003ADE7A /* UI */,
 				9815CEEA1F3898A100FD7F6C /* Notification */,
-				9815CEEF1F3898A100FD7F6C /* NSDate+XQUtils.h */,
-				9815CEF01F3898A100FD7F6C /* NSDate+XQUtils.m */,
-				9815CEF11F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h */,
-				9815CEF21F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m */,
-				9815CEF31F3898A100FD7F6C /* NSObject+XQAuthority.h */,
-				9815CEF41F3898A100FD7F6C /* NSObject+XQAuthority.m */,
-				9815CEF51F3898A100FD7F6C /* UIColor+XQUtils.h */,
-				9815CEF61F3898A100FD7F6C /* UIColor+XQUtils.m */,
-				9815CEF71F3898A100FD7F6C /* UIResponder+XQEventRouter.h */,
-				9815CEF81F3898A100FD7F6C /* UIResponder+XQEventRouter.m */,
-				9815CEF91F3898A100FD7F6C /* UIView+XQUtils.h */,
-				9815CEFA1F3898A100FD7F6C /* UIView+XQUtils.m */,
-				9815CEFB1F3898A100FD7F6C /* UIViewController+XQUtils.h */,
-				9815CEFC1F3898A100FD7F6C /* UIViewController+XQUtils.m */,
-				9815CEFD1F3898A100FD7F6C /* UIViewController+XQHud.h */,
-				9815CEFE1F3898A100FD7F6C /* UIViewController+XQHud.m */,
 			);
 			path = XQCategories;
 			sourceTree = "<group>";
@@ -210,6 +232,8 @@
 		9815CEFF1F3898A100FD7F6C /* XQUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				98B193B71F5D309D003ADE7A /* XQRoundImageView.h */,
+				98B193B81F5D309D003ADE7A /* XQRoundImageView.m */,
 				9815CF251F389A1400FD7F6C /* XQGridlineView.h */,
 				9815CF261F389A1400FD7F6C /* XQGridlineView.m */,
 				9815CF271F389A1400FD7F6C /* XQPopupControllerBase.h */,
@@ -235,6 +259,52 @@
 			path = XQUtils;
 			sourceTree = "<group>";
 		};
+		98B193711F5BF529003ADE7A /* NextStep */ = {
+			isa = PBXGroup;
+			children = (
+				98B193721F5BF529003ADE7A /* NSArray+XQUtils.h */,
+				98B193731F5BF529003ADE7A /* NSArray+XQUtils.m */,
+				98B193741F5BF529003ADE7A /* NSDate+XQUtils.h */,
+				98B193751F5BF529003ADE7A /* NSDate+XQUtils.m */,
+				98B193761F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.h */,
+				98B193771F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.m */,
+				98B193781F5BF529003ADE7A /* NSObject+XQAuthority.h */,
+				98B193791F5BF529003ADE7A /* NSObject+XQAuthority.m */,
+				98B1937A1F5BF529003ADE7A /* NSString+XQUtils.h */,
+				98B1937B1F5BF529003ADE7A /* NSString+XQUtils.m */,
+				98B193BB1F5D31DE003ADE7A /* NSDictionary+XQUtils.h */,
+				98B193BC1F5D31DE003ADE7A /* NSDictionary+XQUtils.m */,
+			);
+			path = NextStep;
+			sourceTree = "<group>";
+		};
+		98B1937C1F5BF529003ADE7A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				98B193AF1F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.h */,
+				98B193B01F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.m */,
+				98B193B31F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.h */,
+				98B193B41F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.m */,
+				98B1937D1F5BF529003ADE7A /* UIApplication+XQUtils.h */,
+				98B1937E1F5BF529003ADE7A /* UIApplication+XQUtils.m */,
+				98B1937F1F5BF529003ADE7A /* UIButton+XQUtils.h */,
+				98B193801F5BF529003ADE7A /* UIButton+XQUtils.m */,
+				98B193811F5BF529003ADE7A /* UIColor+XQUtils.h */,
+				98B193821F5BF529003ADE7A /* UIColor+XQUtils.m */,
+				98B193831F5BF529003ADE7A /* UIImage+XQUtils.h */,
+				98B193841F5BF529003ADE7A /* UIImage+XQUtils.m */,
+				98B193851F5BF529003ADE7A /* UIResponder+XQEventRouter.h */,
+				98B193861F5BF529003ADE7A /* UIResponder+XQEventRouter.m */,
+				98B193891F5BF529003ADE7A /* UIView+XQUtils.h */,
+				98B1938A1F5BF529003ADE7A /* UIView+XQUtils.m */,
+				98B1938D1F5BF529003ADE7A /* UIViewController+XQHud.h */,
+				98B1938E1F5BF529003ADE7A /* UIViewController+XQHud.m */,
+				98B1938F1F5BF529003ADE7A /* UIViewController+XQUtils.h */,
+				98B193901F5BF529003ADE7A /* UIViewController+XQUtils.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		C763EFBB8CD49C0A4DA9F041 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,24 +321,33 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9815CF0D1F3898A100FD7F6C /* UIResponder+XQEventRouter.h in Headers */,
+				98B193AB1F5BF529003ADE7A /* UIViewController+XQHud.h in Headers */,
+				98B193B11F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.h in Headers */,
+				98B193A31F5BF529003ADE7A /* UIResponder+XQEventRouter.h in Headers */,
 				9815CF2D1F389A1400FD7F6C /* XQPopupControllerBase.h in Headers */,
 				9815CF011F3898A100FD7F6C /* NSNotificationCenter+XQUtils.h in Headers */,
-				9815CF071F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.h in Headers */,
-				9815CF111F3898A100FD7F6C /* UIViewController+XQUtils.h in Headers */,
+				98B193931F5BF529003ADE7A /* NSDate+XQUtils.h in Headers */,
+				98B1939F1F5BF529003ADE7A /* UIColor+XQUtils.h in Headers */,
+				98B193971F5BF529003ADE7A /* NSObject+XQAuthority.h in Headers */,
+				98B193A71F5BF529003ADE7A /* UIView+XQUtils.h in Headers */,
+				98B1939B1F5BF529003ADE7A /* UIApplication+XQUtils.h in Headers */,
+				98B193A11F5BF529003ADE7A /* UIImage+XQUtils.h in Headers */,
+				98B193BD1F5D31DE003ADE7A /* NSDictionary+XQUtils.h in Headers */,
+				98B193951F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.h in Headers */,
 				9815CF1D1F38992D00FD7F6C /* XQConstants.h in Headers */,
-				9815CF131F3898A100FD7F6C /* UIViewController+XQHud.h in Headers */,
 				9815CEE01F38972600FD7F6C /* XQKit.h in Headers */,
-				9815CF091F3898A100FD7F6C /* NSObject+XQAuthority.h in Headers */,
 				9815CF2B1F389A1400FD7F6C /* XQGridlineView.h in Headers */,
+				98B193B91F5D309D003ADE7A /* XQRoundImageView.h in Headers */,
 				9815CF231F38992D00FD7F6C /* XQUtilities.h in Headers */,
 				9815CF211F38992D00FD7F6C /* XQLog.h in Headers */,
-				9815CF0B1F3898A100FD7F6C /* UIColor+XQUtils.h in Headers */,
 				9815CF2F1F389A1400FD7F6C /* XQShareController.h in Headers */,
+				98B193911F5BF529003ADE7A /* NSArray+XQUtils.h in Headers */,
+				98B193991F5BF529003ADE7A /* NSString+XQUtils.h in Headers */,
+				98B193B51F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.h in Headers */,
 				9815CF031F3898A100FD7F6C /* NSObject+XQNotification.h in Headers */,
 				9815CF1F1F38992D00FD7F6C /* XQToastUtils.h in Headers */,
-				9815CF051F3898A100FD7F6C /* NSDate+XQUtils.h in Headers */,
-				9815CF0F1F3898A100FD7F6C /* UIView+XQUtils.h in Headers */,
+				98B193AD1F5BF529003ADE7A /* UIViewController+XQUtils.h in Headers */,
+				98B1939D1F5BF529003ADE7A /* UIButton+XQUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,22 +488,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				9815CF221F38992D00FD7F6C /* XQLog.m in Sources */,
+				98B193B61F5CFBC2003ADE7A /* CNContactPickerViewController+XQUtils.m in Sources */,
+				98B193AC1F5BF529003ADE7A /* UIViewController+XQHud.m in Sources */,
+				98B1939E1F5BF529003ADE7A /* UIButton+XQUtils.m in Sources */,
+				98B193941F5BF529003ADE7A /* NSDate+XQUtils.m in Sources */,
+				98B193A41F5BF529003ADE7A /* UIResponder+XQEventRouter.m in Sources */,
+				98B193B21F5CFB17003ADE7A /* ABPeoplePickerNavigationController+XQUtils.m in Sources */,
 				9815CF021F3898A100FD7F6C /* NSNotificationCenter+XQUtils.m in Sources */,
-				9815CF121F3898A100FD7F6C /* UIViewController+XQUtils.m in Sources */,
-				9815CF101F3898A100FD7F6C /* UIView+XQUtils.m in Sources */,
-				9815CF0E1F3898A100FD7F6C /* UIResponder+XQEventRouter.m in Sources */,
-				9815CF0C1F3898A100FD7F6C /* UIColor+XQUtils.m in Sources */,
 				9815CF301F389A1400FD7F6C /* XQShareController.m in Sources */,
+				98B193AE1F5BF529003ADE7A /* UIViewController+XQUtils.m in Sources */,
 				9815CF1E1F38992D00FD7F6C /* XQConstants.m in Sources */,
-				9815CF141F3898A100FD7F6C /* UIViewController+XQHud.m in Sources */,
+				98B193BA1F5D309D003ADE7A /* XQRoundImageView.m in Sources */,
+				98B193961F5BF529003ADE7A /* NSMutableAttributedString+XQUtils.m in Sources */,
 				9815CF201F38992D00FD7F6C /* XQToastUtils.m in Sources */,
-				9815CF081F3898A100FD7F6C /* NSMutableAttributedString+XQUtils.m in Sources */,
-				9815CF061F3898A100FD7F6C /* NSDate+XQUtils.m in Sources */,
+				98B1939C1F5BF529003ADE7A /* UIApplication+XQUtils.m in Sources */,
+				98B193921F5BF529003ADE7A /* NSArray+XQUtils.m in Sources */,
 				9815CF041F3898A100FD7F6C /* NSObject+XQNotification.m in Sources */,
 				9815CF2C1F389A1400FD7F6C /* XQGridlineView.m in Sources */,
-				9815CF0A1F3898A100FD7F6C /* NSObject+XQAuthority.m in Sources */,
+				98B193981F5BF529003ADE7A /* NSObject+XQAuthority.m in Sources */,
 				9815CF2E1F389A1400FD7F6C /* XQPopupControllerBase.m in Sources */,
+				98B193A81F5BF529003ADE7A /* UIView+XQUtils.m in Sources */,
 				9815CF241F38992D00FD7F6C /* XQUtilities.m in Sources */,
+				98B193A21F5BF529003ADE7A /* UIImage+XQUtils.m in Sources */,
+				98B193BE1F5D31DE003ADE7A /* NSDictionary+XQUtils.m in Sources */,
+				98B1939A1F5BF529003ADE7A /* NSString+XQUtils.m in Sources */,
+				98B193A01F5BF529003ADE7A /* UIColor+XQUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

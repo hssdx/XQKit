@@ -23,7 +23,7 @@ SOFTWARE.
  */
 //
 //  XQConstants.h
-//  IKSarahah
+//  XQKit
 //
 //  Created by quanxiong on 2017/7/25.
 //  Copyright © 2017年 com.xq. All rights reserved.

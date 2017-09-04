@@ -1,28 +1,26 @@
-/* 
-MIT License
-
-Copyright (c) 2017 xunquan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+/*
+ MIT License
+ 
+ Copyright (c) 2017 xunquan
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
  */
-//
-//  NSMutableAttributedString+FPUtils.m
 //
 //  NSMutableAttributedString+XQUtils.m
 //  quanxiong
@@ -35,16 +33,16 @@ SOFTWARE.
 
 @implementation NSMutableAttributedString (XQUtils)
 
-+ (instancetype)attributedStringWithContents:(NSArray<NSString *> *)contents
-                                      colors:(NSArray<UIColor *> *)colors
-                                       fonts:(NSArray<UIFont *> *)fonts {
-    return [self attributedStringWithContents:contents colors:colors fonts:fonts urls:nil];
++ (instancetype)xq_attributedStringWithContents:(NSArray<NSString *> *)contents
+                                         colors:(NSArray<UIColor *> *)colors
+                                          fonts:(NSArray<UIFont *> *)fonts {
+    return [self xq_attributedStringWithContents:contents colors:colors fonts:fonts urls:nil];
 }
 
-+ (instancetype)attributedStringWithContents:(NSArray<NSString *> *)contents
-                                      colors:(NSArray<UIColor *> *)colors
-                                       fonts:(NSArray<UIFont *> *)fonts
-                                        urls:(NSArray<NSString *> *)urls {
++ (instancetype)xq_attributedStringWithContents:(NSArray<NSString *> *)contents
+                                         colors:(NSArray<UIColor *> *)colors
+                                          fonts:(NSArray<UIFont *> *)fonts
+                                           urls:(NSArray<NSString *> *)urls {
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
     [contents enumerateObjectsUsingBlock:^(NSString * _Nonnull content, NSUInteger idx, BOOL * _Nonnull stop) {
         UIColor *color;
@@ -58,6 +56,10 @@ SOFTWARE.
             font = [fonts objectAtIndex:idx];
         } else {
             font = [fonts lastObject];
+        }
+        if ([font isKindOfClass:NSNumber.class]) {
+            NSNumber *fontSize = (id)font;
+            font = [UIFont systemFontOfSize:fontSize.floatValue];
         }
         NSMutableDictionary *attribute = [@{} mutableCopy];
         if (color) {

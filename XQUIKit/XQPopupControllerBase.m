@@ -54,9 +54,47 @@ static CGFloat const kDuration = 0.3;
     return [UIColor colorWithWhite:0. alpha:0.6];
 }
 
+- (BOOL)isWidthEqualScreen {
+    return fabs(self.coreViewWidth - XQPopupCoreSizeEqualScreen) < 0.0001;
+}
+
+- (BOOL)isWidthLessScreen {
+    return fabs(self.coreViewWidth - XQPopupCoreSizeLessScreen) < 0.0001;
+}
+
+- (BOOL)isHeightEqualScreen {
+    return fabs(self.coreViewHeight - XQPopupCoreSizeEqualScreen) < 0.0001;
+}
+
+- (BOOL)isHeightLessScreen {
+    return fabs(self.coreViewHeight - XQPopupCoreSizeLessScreen) < 0.0001;
+}
+
+- (CGAffineTransform)beforeAnimateTransform {
+    CGAffineTransform transform;
+    switch (self.animationType) {
+        case XQPopupAnimationCenter:
+            transform = CGAffineTransformMakeScale(0.0001, 0.0001);
+            break;
+        case XQPopupAnimationTop:
+            transform = CGAffineTransformMakeTranslation(0, -XQ_SCREEN_HEIGHT);
+            break;
+        case XQPopupAnimationLeft:
+            transform = CGAffineTransformMakeTranslation(-XQ_SCREEN_WIDTH, 0);
+            break;
+        case XQPopupAnimationBottom:
+            transform = CGAffineTransformMakeTranslation(0, XQ_SCREEN_HEIGHT);
+            break;
+        case XQPopupAnimationRight:
+            transform = CGAffineTransformMakeTranslation(XQ_SCREEN_WIDTH, 0);
+            break;
+    }
+    return transform;
+}
+
 - (void)configSubviews {
     self.view.backgroundColor = [self transparentColor];
-    _coreView.transform = CGAffineTransformMakeTranslation(0, self.coreViewHeight);
+    _coreView.transform = [self beforeAnimateTransform];
     _coreView.backgroundColor = [UIColor whiteColor];
     _coreView.layer.masksToBounds = YES;
     _coreView.layer.cornerRadius = 2;
@@ -76,22 +114,67 @@ static CGFloat const kDuration = 0.3;
     [self.view addGestureRecognizer:tapGesture];
 }
 
-- (CGFloat)coreViewHeight {
-    XQAssert(false);
-    return 100 + 50;
+- (void)makeConstraint {
+    [_coreView mas_makeConstraints:^(MASConstraintMaker *make) {
+        switch (self.style) {
+            case XQPopupStyleCenter:
+                make.centerX.equalTo(self.view);
+                make.centerY.equalTo(self.view);
+                break;
+            case XQPopupStyleTop:
+                make.centerX.equalTo(self.view);
+                make.top.equalTo(self.view);
+                break;
+            case XQPopupStyleLeft:
+                make.left.equalTo(self.view);
+                make.centerY.equalTo(self.view);
+                break;
+            case XQPopupStyleBottom:
+                make.centerX.equalTo(self.view);
+                make.bottom.equalTo(self.view);
+                break;
+            case XQPopupStyleRight:
+                make.right.equalTo(self.view);
+                make.centerY.equalTo(self.view);
+                break;
+            case XQPopupStyleLeftTop:
+                make.left.equalTo(self.view);
+                make.top.equalTo(self.view);
+                break;
+            case XQPopupStyleLeftBottom:
+                make.left.equalTo(self.view);
+                make.bottom.equalTo(self.view);
+                break;
+            case XQPopupStyleRightBottom:
+                make.right.equalTo(self.view);
+                make.bottom.equalTo(self.view);
+                break;
+            case XQPopupStyleRightTop:
+                make.right.equalTo(self.view);
+                make.top.equalTo(self.view);
+                break;
+        }
+        if ([self isWidthLessScreen]) {
+            make.width.equalTo(self.view).offset(-60);
+        } else if ([self isWidthEqualScreen]) {
+            make.width.equalTo(self.view);
+        } else {
+            make.width.equalTo(@(self.coreViewWidth));
+        }
+        if ([self isHeightLessScreen]) {
+            make.height.equalTo(self.view).offset(-60);
+        } else if ([self isHeightEqualScreen]) {
+            make.height.equalTo(self.view);
+        } else {
+            make.height.equalTo(@(self.coreViewHeight));
+        }
+    }];
 }
 
 - (void)setupSubViews {
     _coreView = [UIView new];
     
     [self.view addSubview:_coreView];
-    
-    [_coreView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view);
-        make.width.equalTo(self.view);
-        make.height.equalTo(@(self.coreViewHeight));
-    }];
 }
 
 - (void)_exitWithDuration:(CGFloat)duration complete:(void (^)(void))complete {
@@ -101,10 +184,10 @@ static CGFloat const kDuration = 0.3;
     self.onbusy = YES;
     [self.delegate controllerWillExit:self];
     [UIView animateWithDuration:duration animations:^{
-        self.coreView.transform = CGAffineTransformMakeTranslation(0, self.coreViewHeight);
+        self.coreView.transform = [self beforeAnimateTransform];
         self.view.backgroundColor = [self transparentColor];;
     } completion:^(BOOL finished) {
-        [self xq_dismissSelf];
+        [self xq_removeSelf];
         [self.delegate controllerDidExit:self];
         if (complete) {
             complete();
@@ -124,16 +207,30 @@ static CGFloat const kDuration = 0.3;
     self.onbusy = YES;
     
     @weakify(self);
+    
     xq_dispatch_main_sync_safe(^{
         [self.delegate controllerWillPopup:self];
-        [UIView animateWithDuration:kDuration animations:^{
-            @strongify(self);
-            self.coreView.transform = CGAffineTransformIdentity;
-            self.view.backgroundColor = [self opaqueColor];
-        } completion:^(BOOL finished) {
-            [self.delegate controllerDidPopup:self];
-            self.onbusy = NO;
-        }];
+        
+        if (self.animationType == XQPopupAnimationCenter) {
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                @strongify(self);
+                self.coreView.transform = CGAffineTransformIdentity;
+                self.view.backgroundColor = [self opaqueColor];
+            } completion:^(BOOL finished) {
+                @strongify(self);
+                [self.delegate controllerDidPopup:self];
+                self.onbusy = NO;
+            }];
+        } else {
+            [UIView animateWithDuration:kDuration animations:^{
+                @strongify(self);
+                self.coreView.transform = CGAffineTransformIdentity;
+                self.view.backgroundColor = [self opaqueColor];
+            } completion:^(BOOL finished) {
+                [self.delegate controllerDidPopup:self];
+                self.onbusy = NO;
+            }];
+        }
     });
 }
 
@@ -142,9 +239,10 @@ static CGFloat const kDuration = 0.3;
     
     [self setupSubViews];
     [self configSubviews];
+    [self makeConstraint];
     
     xq_dispatch_main_async_safe(^{
-        [self performSelector:@selector(_animatedShow) withObject:nil afterDelay:0.2];
+        [self performSelector:@selector(_animatedShow) withObject:nil afterDelay:0.01];
     });
 }
 

@@ -22,15 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
-//  XQKit
+//  UIColor+XQUtils.m
+//  XQ
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by xiongxunquan on 16/6/23.
+//  Copyright © 2016年 xunquan. All rights reserved.
 //
+#import "UIColor+XQUtils.h"
 
-#import "XQConstants.h"
+@implementation UIColor (XQUtils)
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
-
+@end

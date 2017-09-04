@@ -1,3 +1,15 @@
+# 
+# author xxq
+# create time: 2017年08月10日15:24:57
+# 
+
+project_name="XQKit"
+public_header_file_pod="./tmp_public_header.txt"
+public_header_file_no_pod="./tmp_public_header_no_pod.txt"
+result_file="${project_name}/${project_name}.h"
+
+# echo $result_file
+
 function filtHeaderFile()
 {
 	filename="$1"
@@ -6,33 +18,18 @@ function filtHeaderFile()
 	if [[ $filepath =~ $blackList ]]; then
 		return 1
 	fi
-	blackList="XQKit.h"
-	if [[ $filepath =~ $blackList ]]; then
+
+	if [ $filename = "${project_name}.h" ]; then
 		return 2
 	fi
 	if [ "${filename##*.}" = "h" ]; then
-		echo "#import <XQKit/$filename>" >> ./tmp_XQKit.h
-		#cat "./LICENSE" >> ./copy_license_file.txt
-		#echo "$filename" >> ./tmp_XQKit.h
-		#echo ">" >> ./tmp_XQKit.h
-
-		#f [ ! -z "`grep "MIT License" $filepath`" ]; then
-		#	echo "[$filepath] aleady has license describe."
-			#test
-		#else
-		#	echo "#import <XQKit/" > ./tmp_XQKit.h
-			#cat "./LICENSE" >> ./copy_license_file.txt
-		#	echo "$filename" >> ./tmp_XQKit.h
-		#	cat ">" >> ./tmp_XQKit.h
-			#mv ./copy_license_file.txt $filepath
-			#echo "[$filepath]"
-		#fi
+		echo "#import <${project_name}/$filename>" >> $public_header_file_pod
+		echo "#import \"$filename\"" >> $public_header_file_no_pod
 	fi
 }
 
 function traversingFiles()
 {
-	#1st param, the dir name
 	for file in `ls $1`;
 	do
 		if [ -d "$1/$file" ]; then
@@ -41,7 +38,51 @@ function traversingFiles()
 			filtHeaderFile $file $1
 		fi
 	done
-	#rm -f ./tmp_XQKit.h
 }
 
+#清除之前的文件
+#rm -f $result_file
+
 traversingFiles "."
+
+mkdir $project_name
+touch $result_file
+echo "/* " > $result_file
+cat "./LICENSE" >> $result_file
+echo " */" >> $result_file
+echo "
+//
+//  XQKit.h
+//  XQKit
+//
+//  Created by quanxiong on 2017/8/7.
+//  Copyright © 2017年 com.hssdx. All rights reserved.
+//
+#import <Foundation/Foundation.h>
+
+#if __has_include(<${project_name}/${project_name}.h>)
+
+FOUNDATION_EXPORT double ${project_name}VersionNumber;
+FOUNDATION_EXPORT const unsigned char ${project_name}VersionString[];
+
+"  >> $result_file
+
+cat $public_header_file_pod >> $result_file
+
+echo "
+
+#else
+
+" >> $result_file
+
+cat $public_header_file_no_pod >> $result_file
+
+echo "
+
+#endif
+
+" >> $result_file
+
+#清理文件
+rm -f $public_header_file_pod
+rm -f $public_header_file_no_pod

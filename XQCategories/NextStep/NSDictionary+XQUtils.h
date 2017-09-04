@@ -22,26 +22,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  NSObject+XQAuthority.h
-//  quanxiong
+//  NSDictionary+XQUtils.h
+//  XQKit
 //
-//  Created by xiongxunquan on 16/7/25.
-//  Copyright © 2016年 xunquan. All rights reserved.
+//  Created by quanxiong on 2017/9/4.
+//  Copyright © 2017年 com.hssdx. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (XQAuthority)
+typedef NS_ENUM(NSInteger, GET_URLSort) {
+    GET_URLSortNone,
+    GET_URLSortASC,
+    GET_URLSortDESC
+};
 
-+ (void)gotoSystemTimeSettings;
-+ (void)gotoOpenAuthSettings;
-- (BOOL)judgeIsHaveGPSAuthority;
-- (BOOL)judgeIsHavePhotoAblumAuthority __deprecated;
-- (BOOL)judgeIsHaveCameraAuthority __deprecated;
-- (BOOL)judgeIsHaveContactAuthority;
-- (BOOL)judgeIsHaveNotificationAuthority;
+@interface NSDictionary (XQUtils)
 
-- (void)requestGalleryAuthorityIfNeeded:(void(^)(BOOL status))handler;
-- (void)requestCameraAuthorityIfNeeded:(void(^)(BOOL status))handler;
+- (NSString *)GET_URLStringForGET;
+
+- (NSString *)GET_URLStringWithSortType:(GET_URLSort)sortType
+                     arrayParaSeparator:(NSString *)arrayParaSeparator
+                           keyTransform:(id<NSCoding>(^)(id<NSCoding> originKey))keyTransform
+                         valueTransform:(id (^)(id originValue))valueTransform;
 
 @end

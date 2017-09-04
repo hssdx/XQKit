@@ -52,6 +52,7 @@ extern void _XQAssertOutput(const char * szFunction, const char *szFile, int nLi
 
 #define XQ_DEALLOC_IMP -(void)dealloc { XQLog(@"[dealloc]%s", __func__); }
 #define XQ_ASSERT_RESULT(___) BOOL VA = (___); XQAssert(VA);
+#define XQLogCodeLine XQLog(@"func:%s\nline:%d\nfile:%s", __func__, __LINE__, __FILE__);
 
 #define BUGLY 0
 
@@ -62,6 +63,7 @@ extern void _XQAssertOutput(const char * szFunction, const char *szFile, int nLi
 #define XQLogForFrame(frame) (void)0
 #define XQ_DEALLOC_IMP 
 #define XQ_ASSERT_RESULT(___) (void)0
+#define XQLogCodeLine (void)0
 
 #define BUGLY 0
 

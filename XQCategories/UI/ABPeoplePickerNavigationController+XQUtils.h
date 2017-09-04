@@ -22,15 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
+//  ABPeoplePickerNavigationController+XQUtils.h
 //  XQKit
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by quanxiong on 2017/8/29.
+//  Copyright © 2017年 xun.quan. All rights reserved.
 //
 
-#import "XQConstants.h"
+#import <AddressBookUI/AddressBookUI.h>
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+
+typedef void (^XQPeoplePickerBlock)(ABPeoplePickerNavigationController *picker, NSDictionary *personInfo);
+
+@interface ABPeoplePickerNavigationController (XQUtils)
+
+/* If you use this property, you can not use `peoplePickerDelegate` again */
+@property (nonatomic, copy) XQPeoplePickerBlock xqPickerDidSelectPersonBlock;
+
+@end
+
+
+#pragma clang diagnostic pop

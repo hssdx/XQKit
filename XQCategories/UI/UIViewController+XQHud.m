@@ -34,16 +34,16 @@ SOFTWARE.
 
 @implementation UIViewController (XQHud)
 
-- (UIView *)xqHudHost {
+- (UIView *)xq_hudHost {
     return [[UIApplication sharedApplication] keyWindow];
 }
 
-- (MBProgressHUD *)xqShowHud {
-    return [self xqShowHubWithText:nil];
+- (MBProgressHUD *)xq_showHud {
+    return [self xq_showHudWithText:nil];
 }
 
-- (MBProgressHUD *)xqShowHubWithText:(NSString *)text {
-    UIView *hudHost = [self xqHudHost];
+- (MBProgressHUD *)xq_showHudWithText:(NSString *)text {
+    UIView *hudHost = [self xq_hudHost];
     MBProgressHUD *hud = [MBProgressHUD HUDForView:hudHost];
     if (hud) {
         [hud showAnimated:YES];
@@ -56,15 +56,15 @@ SOFTWARE.
     return hud;
 }
 
-- (void)xqHideHud {
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:[self xqHudHost]];
+- (void)xq_hideHud {
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:[self xq_hudHost]];
     if (hud) {
         [hud hideAnimated:YES];
     }
 }
 
-- (void)xqHideHudDelay:(CGFloat)delay {
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:[self xqHudHost]];
+- (void)xq_hideHudDelay:(CGFloat)delay {
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:[self xq_hudHost]];
     if (hud) {
         [hud hideAnimated:YES afterDelay:delay];
     }

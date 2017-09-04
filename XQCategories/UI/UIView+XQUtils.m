@@ -34,14 +34,14 @@ SOFTWARE.
 
 @implementation UIView (XQUtils)
 
-- (void)addTapAction:(void (^)(id sender))action {
+- (void)xq_addTapAction:(void (^)(id sender))action {
     self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes =
     [[UITapGestureRecognizer alloc] initWithActionBlock:action];
     [self addGestureRecognizer:tapGes];
 }
 
-- (void)addTapAction:(void (^)(id sender))action withTimes:(NSInteger)times {
+- (void)xq_addTapAction:(void (^)(id sender))action withTimes:(NSInteger)times {
     self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes =
     [[UITapGestureRecognizer alloc] initWithActionBlock:action];
@@ -49,18 +49,72 @@ SOFTWARE.
     [self addGestureRecognizer:tapGes];
 }
 
-- (void)addLongPressAction:(void (^)(id sender))action {
+- (void)xq_addLongPressAction:(void (^)(id sender))action {
     self.userInteractionEnabled = YES;
     UILongPressGestureRecognizer *longPressGes =
     [[UILongPressGestureRecognizer alloc] initWithActionBlock:action];
     [self addGestureRecognizer:longPressGes];
 }
 
-- (void)addPanAction:(void (^)(UIPanGestureRecognizer *gesture))action {
+- (void)xq_addPanAction:(void (^)(UIPanGestureRecognizer *gesture))action {
     self.userInteractionEnabled = YES;
     UIPanGestureRecognizer *panGes =
     [[UIPanGestureRecognizer alloc] initWithActionBlock:action];
     [self addGestureRecognizer:panGes];
+}
+
+
+- (CGFloat)xqCornerRadius {
+    return self.layer.cornerRadius;
+}
+
+- (void)setXqCornerRadius:(CGFloat)radius {
+    self.layer.cornerRadius = radius;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)xq_shock {
+    [self xq_shockWithComplete:nil];
+}
+
+- (void)xq_shockWithComplete:(void(^)())complete {
+    static CGFloat s_swing = 24;
+    static CGFloat s_duration = 0.5;
+    
+    self.transform = CGAffineTransformMakeTranslation(-s_swing, 0);
+    CGColorRef originBorderColor = self.layer.borderColor;
+    CGFloat originBorderWidth = self.layer.borderWidth;
+    self.layer.borderColor = [UIColor redColor].CGColor;
+    self.layer.borderWidth = 1;
+    [UIView animateWithDuration:s_duration
+                          delay:0
+         usingSpringWithDamping:0.2
+          initialSpringVelocity:((s_swing + s_swing) / s_duration)
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^
+     {
+         self.transform = CGAffineTransformIdentity;
+     } completion:^(BOOL finished)
+     {
+         self.layer.borderColor = originBorderColor;
+         self.layer.borderWidth = originBorderWidth;
+         if (complete) {
+             complete();
+         }
+     }];
+}
+
+- (BOOL)xq_hitTest:(CGPoint)point enlarge:(UIEdgeInsets)enlarge {
+    if (self.hidden || self.alpha < 0.01) {
+        return NO;
+    }
+    if (point.x >= self.left - enlarge.left &&
+        point.x <= self.right + enlarge.right &&
+        point.y >= self.top - enlarge.top &&
+        point.y <= self.bottom + enlarge.bottom) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

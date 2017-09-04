@@ -23,7 +23,7 @@ SOFTWARE.
  */
 //
 //  XQShareController.m
-//  IKSarahah
+//  XQKit
 //
 //  Created by quanxiong on 2017/7/30.
 //  Copyright © 2017年 com.xq. All rights reserved.
@@ -146,7 +146,7 @@ static const CGFloat kTitleHeight = 40;
     [super configSubviews];
     
     _titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    _titleLabel.textColor = [UIColor xqThemeTextColor];
+    _titleLabel.textColor = [UIColor darkTextColor];
     if (self.topic.length) {
         _titleLabel.text = self.topic;
     } else {
@@ -231,27 +231,27 @@ static const CGFloat kTitleHeight = 40;
         {
             [self.itemViews[0] mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(_titleLabel.mas_bottom);
+                make.bottom.equalTo(self.coreView);
                 make.left.equalTo(self.coreView);
             }];
             [self.itemViews[1] mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.itemViews[0]);
                 make.bottom.equalTo(self.itemViews[0]);
-                make.right.equalTo(self.coreView);
                 make.left.equalTo(self.itemViews[0].mas_right);
                 make.width.equalTo(self.itemViews[0]);
             }];
             [self.itemViews[2] mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.itemViews[0].mas_bottom);
-                make.bottom.equalTo(self.coreView);
-                make.left.equalTo(self.itemViews[0]);
-                make.right.equalTo(self.itemViews[0]);
-                make.height.equalTo(self.itemViews[0]); //!!
+                make.top.equalTo(self.itemViews[0]);
+                make.bottom.equalTo(self.itemViews[0]);
+                make.left.equalTo(self.itemViews[1].mas_right);
+                make.width.equalTo(self.itemViews[0]);
             }];
             [self.itemViews[3] mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.itemViews[2]);
-                make.bottom.equalTo(self.itemViews[2]);
-                make.left.equalTo(self.itemViews[1]);
-                make.right.equalTo(self.itemViews[1]);
+                make.top.equalTo(self.itemViews[0]);
+                make.bottom.equalTo(self.itemViews[0]);
+                make.left.equalTo(self.itemViews[2].mas_right);
+                make.right.equalTo(self.coreView);
+                make.width.equalTo(self.itemViews[0]);
             }];
         }
             break;
@@ -262,6 +262,18 @@ static const CGFloat kTitleHeight = 40;
 
 - (CGFloat)coreViewHeight {
     return 140;
+}
+
+- (CGFloat)coreViewWidth {
+    return XQPopupCoreSizeEqualScreen;
+}
+
+- (XQPopupAnimation)animationType {
+    return XQPopupAnimationBottom;
+}
+
+- (XQPopupStyle)style {
+    return XQPopupStyleBottom;
 }
 
 - (void)viewDidLoad {

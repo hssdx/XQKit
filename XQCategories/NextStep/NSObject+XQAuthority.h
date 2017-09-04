@@ -22,15 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
-//  XQKit
+//  NSObject+XQAuthority.h
+//  quanxiong
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by xiongxunquan on 16/7/25.
+//  Copyright © 2016年 xunquan. All rights reserved.
 //
 
-#import "XQConstants.h"
+#import <Foundation/Foundation.h>
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
+@interface NSObject (XQAuthority)
 
++ (void)xq_gotoSystemTimeSettings;
++ (void)xq_gotoOpenAuthSettings;
+- (BOOL)xq_judgeIsHaveGPSAuthority;
+- (BOOL)xq_judgeIsHavePhotoAblumAuthority __deprecated;
+- (BOOL)xq_judgeIsHaveCameraAuthority __deprecated;
+- (BOOL)xq_judgeIsHaveContactAuthority;
+
+- (void)xq_requestRemotePushAuthority:(void(^)(BOOL status))handler;
+- (void)xq_requestGalleryAuthorityIfNeeded:(void(^)(BOOL status))handler;
+- (void)xq_requestCameraAuthorityIfNeeded:(void(^)(BOOL status))handler;
+
+@end

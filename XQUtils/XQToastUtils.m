@@ -30,7 +30,16 @@ SOFTWARE.
 //
 
 #import "XQToastUtils.h"
+#import "XQUtilities.h"
+#import "UIApplication+XQUtils.h"
 #import <YYKit/YYKit.h>
+
+
+static UIView *s_toastView = nil;
+static UILabel *s_toastLabel = nil;
+static BOOL s_toastShowed = NO;
+static const CGFloat s_toastHeight = 90;
+static const CGFloat s_contentHeight = 70;
 
 @implementation XQToastUtils
 
@@ -41,7 +50,7 @@ SOFTWARE.
     [self _show:content showTime:2 level:ToastLevelInfo];
 }
 
-+ (void)showWarnning:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2)
++ (void)showWarn:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2)
 {
     MULTI_PARA_MSG(message, content)
     [self _show:content showTime:2 level:ToastLevelWarn];
@@ -53,21 +62,37 @@ SOFTWARE.
     [self _show:content showTime:2 level:ToastLevelError];
 }
 
-static UIView *s_toastView = nil;
-static UILabel *s_toastLabel = nil;
-static BOOL s_toastShowed = NO;
-static const CGFloat s_toastHeight = 90;
-static const CGFloat s_contentHeight = 70;
++ (void)showDelay:(CGFloat)delay message:(NSString *)message, ...
+{
+    MULTI_PARA_MSG(message, content)
+    [self _show:content showTime:delay level:ToastLevelInfo];
+}
+
++ (void)showWarnDelay:(CGFloat)delay message:(NSString *)message, ...
+{
+    MULTI_PARA_MSG(message, content)
+    [self _show:content showTime:delay level:ToastLevelWarn];
+}
+
++ (void)showErrorDelay:(CGFloat)delay message:(NSString *)message, ...
+{
+    MULTI_PARA_MSG(message, content)
+    [self _show:content showTime:delay level:ToastLevelError];
+}
 
 + (void)_show:(NSString *)message showTime:(float)showTime level:(ToastLevel)level
 {
+    if ([UIApplication xq_runningInBackground]) {
+        //app 在后台不弹窗
+        return;
+    }
     if (![[NSThread currentThread] isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self _show:message showTime:showTime level:level];
         });
         return;
     }
-//    ASSERT_IS_MAIN_THREAD
+    ASSERT_IS_MAIN_THREAD
     if (s_toastView == nil) {
         s_toastView = [UIView new];
         s_toastLabel = [UILabel new];

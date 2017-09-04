@@ -22,24 +22,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  NSMutableAttributedString+XQUtils.h
-//  quanxiong
+//  UIButton+XQUtils.h
+//  XQKit
 //
-//  Created by xiongxunquan on 16/6/21.
-//  Copyright © 2016年 xunquan. All rights reserved.
+//  Created by quanxiong on 2017/8/24.
+//  Copyright © 2017年 xun.quan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface NSMutableAttributedString (XQUtils)
+@interface UIButton (XQUtils)
 
-+ (instancetype)attributedStringWithContents:(NSArray<NSString *> *)contents
-                                      colors:(NSArray<UIColor *> *)colors
-                                       fonts:(NSArray<UIFont *> *)fonts;
+#if DEBUG //只是方便编写 getter setter，不允许外界使用
+@property (assign, nonatomic) CGFloat xqCountDown;
+@property (strong, nonatomic) NSTimer *xqTimer;
+@property (copy, nonatomic) NSString *xqOriginTitle;
+#endif
 
-+ (instancetype)attributedStringWithContents:(NSArray<NSString *> *)contents
-                                      colors:(NSArray<UIColor *> *)colors
-                                       fonts:(NSArray<UIFont *> *)fonts
-                                        urls:(NSArray<NSString *> *)urls;
+- (void)xq_setEnable;
+- (void)xq_setEnableIfNoCountDown:(BOOL)enable;
+- (void)xq_setDisableWithPressBlock:(void(^)(UIButton *button))block
+                          countDown:(CGFloat)countDown;
+
+- (void)xq_setTitleRightNow:(NSString *)title;
+- (void)xq_applyDisableBackgroundColor;
+- (void)xq_setBackgroundColor:(UIColor *)color state:(UIControlState)state;
+- (void)xq_set2StateBackgroundColor:(UIColor *)color;
+
+- (void)setXqDisableTitle:(NSString *)title;
 
 @end

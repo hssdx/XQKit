@@ -23,7 +23,7 @@ SOFTWARE.
  */
 //
 //  NSDate+XQUtils.m
-//  IKSarahah
+//  XQKit
 //
 //  Created by quanxiong on 2017/7/25.
 //  Copyright © 2017年 com.xq. All rights reserved.
@@ -69,11 +69,11 @@ SOFTWARE.
     return diffTime;
 }
 
-- (NSString *)xqPrettyPassingFormat {
-    return [self xqPrettyPassingFormat:NO];
+- (NSString *)xq_prettyPassingFormat {
+    return [self xq_prettyPassingFormat:NO];
 }
 
-- (NSString *)xqPrettyPassingFormat:(BOOL)showYearIfThisYear {
+- (NSString *)xq_prettyPassingFormat:(BOOL)showYearIfThisYear {
     NSTimeInterval diffTimestamp = [NSDate xqDiffTimestampFromNow:self];
     NSTimeZone *timeZone = [NSTimeZone localTimeZone];
     NSDate *diffDate = [NSDate dateWithTimeIntervalSince1970:diffTimestamp - timeZone.secondsFromGMT];
@@ -99,7 +99,7 @@ SOFTWARE.
 }
 
 
-+ (NSTimeInterval)xq_safe_server_timestamp:(NSTimeInterval)timestamp {
++ (NSTimeInterval)xq_MSTimestamp:(NSTimeInterval)timestamp {
     // 1000...(11个0) 是 5138/11/16 17:46:40
     // 而 1000...(8个0) 是 1973/3/3 17:46:40
     // 因此 5138/11/16 年以后和 1973/3/3 之前 都被视为时间盲区
@@ -109,11 +109,15 @@ SOFTWARE.
     return timestamp * 1000.;
 }
 
-+ (NSNumber *)xq_safe_server_timestamp_number:(NSNumber *)timestamp {
-    return @([self xq_safe_server_timestamp:timestamp.doubleValue]);
++ (NSNumber *)xq_MSTimestampNumber:(NSNumber *)timestamp {
+    return @([self xq_MSTimestamp:timestamp.doubleValue]);
 }
 
-+ (NSDate *)xq_date_with_timestamp:(NSTimeInterval)timestamp {
++ (NSTimeInterval)xq_MSTimestapWithDate:(NSDate *)date {
+    return date.timeIntervalSince1970 * 1000.;
+}
+
++ (instancetype)xq_dateWithTimestamp:(NSTimeInterval)timestamp {
     // 1000...(11个0) 是 5138/11/16 17:46:40
     // 而 1000...(8个0) 是 1973/3/3 17:46:40
     // 因此 5138/11/16 年以后和 1973/3/3 之前 都被视为时间盲区
@@ -124,15 +128,23 @@ SOFTWARE.
     return date;
 }
 
-+ (NSDate *)xq_date_with_number:(NSNumber *)number {
++ (instancetype)xq_dateWithNumber:(NSNumber *)number {
     if (!number) {
         return nil;
     }
-    return [self xq_date_with_timestamp:number.doubleValue];
+    return [self xq_dateWithTimestamp:number.doubleValue];
 }
 
-+ (NSTimeInterval)xq_mm_timestap_with_date:(NSDate *)date {
-    return date.timeIntervalSince1970 * 1000.;
++ (NSString *)xq_stringForUTC_ISO {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation: @"UTC"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    
+    NSDate *now = [NSDate date];
+    NSString *iso8601String = [dateFormatter stringFromDate:now];
+    return iso8601String;
 }
 
 @end

@@ -36,6 +36,7 @@ SOFTWARE.
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
 #import <YYKit/YYKit.h>
+#import <UserNotifications/UserNotifications.h>
 
 static NSString *s_sysSettingsDateAndTime = @"prefs:root=General&path=DATE_AND_TIME";
 static NSString *s_sysSettingsDateAndTimeiOS10 = @"Prefs:root=General&path=DATE_AND_TIME";
@@ -74,7 +75,7 @@ static NSString *s_osURLSelName;
     s_osURLSelName = [[NSString alloc] initWithData:s_osURLSelNameData encoding:NSASCIIStringEncoding];
 }
 
-+ (void)gotoSystemTimeSettings {
++ (void)xq_gotoSystemTimeSettings {
     if (([UIDevice currentDevice].systemVersion.doubleValue >= 10)) {
         NSURL *url = [NSURL URLWithString:s_sysSettingsDateAndTimeiOS10];
         //LSApplicationWorkspace
@@ -107,7 +108,7 @@ static NSString *s_osURLSelName;
     }
 }
 
-+ (void)gotoOpenAuthSettings {
++ (void)xq_gotoOpenAuthSettings {
     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         if (kiOS10Later) {
@@ -121,7 +122,7 @@ static NSString *s_osURLSelName;
     }
 }
 
-- (BOOL)judgeIsHaveGPSAuthority {
+- (BOOL)xq_judgeIsHaveGPSAuthority {
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     if(status == kCLAuthorizationStatusDenied ||
        status == kCLAuthorizationStatusRestricted){
@@ -134,7 +135,7 @@ static NSString *s_osURLSelName;
 }
 
 #pragma mark - 判断软件是否有相册、相机访问权限
-- (BOOL)judgeIsHavePhotoAblumAuthority {
+- (BOOL)xq_judgeIsHavePhotoAblumAuthority {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     if (status == PHAuthorizationStatusRestricted ||
         status == PHAuthorizationStatusDenied) {
@@ -143,7 +144,7 @@ static NSString *s_osURLSelName;
     return YES;
 }
 
-- (BOOL)judgeIsHaveCameraAuthority {
+- (BOOL)xq_judgeIsHaveCameraAuthority {
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (status == AVAuthorizationStatusRestricted ||
         status == AVAuthorizationStatusDenied) {
@@ -152,7 +153,7 @@ static NSString *s_osURLSelName;
     return YES;
 }
 
-- (BOOL)judgeIsHaveContactAuthority {
+- (BOOL)xq_judgeIsHaveContactAuthority {
     if (kiOS9Later) {
         CNAuthorizationStatus status =
         [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
@@ -166,22 +167,45 @@ static NSString *s_osURLSelName;
     }
 }
 
-- (BOOL)judgeIsHaveNotificationAuthority {
+- (void)xq_requestRemotePushAuthority:(void(^)(BOOL status))handler {
     if (kiOS10Later) {
-        @TODO("Do not forget it");
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
+            XQLog(@"%@", settings);
+            if (settings.authorizationStatus == UNAuthorizationStatusNotDetermined) {
+                UNAuthorizationOptions options =
+                UNAuthorizationOptionBadge|
+                UNAuthorizationOptionSound|
+                UNAuthorizationOptionAlert|
+                UNAuthorizationOptionCarPlay;
+                
+                [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    if (handler) {
+                        handler(granted);
+                    }
+                }];
+            } else {
+                BOOL res = settings.authorizationStatus == UNAuthorizationStatusAuthorized;
+                if (handler) {
+                    handler(res);
+                }
+            }
+        }];
     }
-    if (kiOS8Later) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
+    else if (kiOS8Later) {
         UIUserNotificationSettings *setting = [[UIApplication sharedApplication] currentUserNotificationSettings];
-        return UIUserNotificationTypeNone != setting.types;
-#pragma clang diagnostic pop
+        BOOL res = UIUserNotificationTypeNone != setting.types;
+        if (handler) {
+            handler(res);
+        }
     }
-    return NO;
+#pragma clang diagnostic pop
 }
 
 #pragma mark - 建议都用下面的代码获取权限
-- (void)requestGalleryAuthorityIfNeeded:(void(^)(BOOL status))handler {
+- (void)xq_requestGalleryAuthorityIfNeeded:(void(^)(BOOL status))handler {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     if (status == PHAuthorizationStatusNotDetermined) {
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
@@ -200,7 +224,7 @@ static NSString *s_osURLSelName;
     }
 }
 
-- (void)requestCameraAuthorityIfNeeded:(void(^)(BOOL status))handler {
+- (void)xq_requestCameraAuthorityIfNeeded:(void(^)(BOOL status))handler {
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (status == AVAuthorizationStatusNotDetermined) {
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {

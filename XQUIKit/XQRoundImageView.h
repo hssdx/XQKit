@@ -22,23 +22,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  UIViewController+XQHud.h
-//  xq
+//  XQRoundImageView.h
+//  facephoto
 //
-//  Created by xiongxunquan on 2017/5/17.
-//  Copyright © 2017年 xunquan. All rights reserved.
+//  Created by xiongxunquan on 16/6/30.
+//  Copyright © 2016年 xunquan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class MBProgressHUD;
+@interface XQRoundImageView : UIImageView
+@property (assign, nonatomic, getter=isRound) BOOL round;
 
-@interface UIViewController (XQHud)
-
-- (UIView *)xqHudHost;
-- (MBProgressHUD *)xqShowHud;
-- (MBProgressHUD *)xqShowHubWithText:(NSString *)text;
-- (void)xqHideHud;
-- (void)xqHideHudDelay:(CGFloat)delay;
-
+- (void)addBorderWithColor:(UIColor *)color width:(CGFloat)width;
 @end

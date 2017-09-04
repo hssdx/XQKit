@@ -22,15 +22,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
-//  XQKit
+//  UIView+XQUtils.h
+//  XQ
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by xiongxunquan on 2017/5/16.
+//  Copyright © 2017年 xunquan. All rights reserved.
 //
 
-#import "XQConstants.h"
+#import <UIKit/UIKit.h>
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
+@interface UIView (XQUtils)
 
+- (void)xq_addTapAction:(void (^)(id sender))action;
+- (void)xq_addTapAction:(void (^)(id sender))action withTimes:(NSInteger)times;
+- (void)xq_addLongPressAction:(void (^)(id sender))action;
+- (void)xq_addPanAction:(void (^)(UIPanGestureRecognizer *gesture))action;
+
+//for use kcv
+- (CGFloat)xqCornerRadius;
+- (void)setXqCornerRadius:(CGFloat)radius;
+
+- (void)xq_shock;
+- (void)xq_shockWithComplete:(void(^)())complete;
+
+- (BOOL)xq_hitTest:(CGPoint)point enlarge:(UIEdgeInsets)enlarge;
+
+@end

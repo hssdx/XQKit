@@ -23,7 +23,7 @@ SOFTWARE.
  */
 //
 //  UIViewController+XQUtils.h
-//  IKSarahah
+//  XQKit
 //
 //  Created by quanxiong on 2017/7/24.
 //  Copyright © 2017年 com.xq. All rights reserved.
@@ -35,16 +35,24 @@ SOFTWARE.
 
 + (instancetype)xq_controllerForNib;
 
-- (void)xq_setupRightBarItemImage:(UIImage *)image selector:(SEL)selector;
+- (void)xq_setupRightBarItemImage:(UIImage *)image block:(void (^)(id sender))block;
+- (void)xq_setupRightBarItemImage:(UIImage *)image
+                        tintColor:(UIColor *)tintColor
+                       pressImage:(UIImage *)pressImage
+                            block:(void (^)(id sender))block;
 
 - (void)xq_displayViewController:(UIViewController *)viewController;
 
 - (void)xq_addChildViewControllerIfNeed:(UIViewController *)viewController;
 
-- (void)xq_dismissSelf;
+- (void)xq_removeSelf;
 
-- (void)xq_safeExitSelf;
+- (void)xq_safePopSelf;
+
+- (void)xq_safeDismissSelf;
 
 - (void)xq_setupRightSwipeToBack;
+
+- (void)xq_setBackBarItemNoTitle;
 
 @end

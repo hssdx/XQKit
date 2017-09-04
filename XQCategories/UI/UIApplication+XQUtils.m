@@ -22,33 +22,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  UIColor+XQUtils.h
-//  XQ
+//  UIApplication+XQUtils.m
+//  XQKit
 //
-//  Created by xiongxunquan on 16/6/23.
-//  Copyright © 2016年 xunquan. All rights reserved.
+//  Created by quanxiong on 2017/9/3.
+//  Copyright © 2017年 com.hssdx. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIApplication+XQUtils.h"
 
-#define DEF_COLOR(_CATEGORY, _NAME) +(instancetype)xq##_CATEGORY##_NAME##Color;
+@implementation UIApplication (XQUtils)
 
-#define UIColorFromRGB(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
-#define UIColorFromRGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
++ (BOOL)xq_runningInBackground
+{
+    UIApplicationState state = [UIApplication sharedApplication].applicationState;
+    BOOL result = (state == UIApplicationStateBackground);
+    return result;
+}
 
-#define UIColorFromHexRGB(rgbValue) [UIColor colorWithRed:\
-((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:\
-((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:\
-((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-#define UIColorFromHexRGBA(rgbValue,alphaValue) [UIColor colorWithRed:\
-((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:\
-((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:\
-((float)(rgbValue & 0xFF))/255.0 alpha:alphaValue]
-
-@interface UIColor (XQUtils)
-
-DEF_COLOR(Theme, Background)
-DEF_COLOR(Theme, Text)
++ (BOOL)xq_runningInActive
+{
+    UIApplicationState state = [UIApplication sharedApplication].applicationState;
+    BOOL result = (state == UIApplicationStateActive ||
+                   state == UIApplicationStateInactive);
+    return result;
+}
 
 @end

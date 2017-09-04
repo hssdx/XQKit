@@ -23,7 +23,7 @@ SOFTWARE.
  */
 //
 //  UIViewController+XQUtils.m
-//  IKSarahah
+//  XQKit
 //
 //  Created by quanxiong on 2017/7/24.
 //  Copyright © 2017年 com.xq. All rights reserved.
@@ -31,31 +31,45 @@ SOFTWARE.
 
 #import "UIViewController+XQUtils.h"
 #import "UIColor+XQUtils.h"
+#import "XQUtilities.h"
+#import <YYKit/YYKit.h>
 
 @implementation UIViewController (XQUtils)
 
 + (instancetype)xq_controllerForNib {
     return [[self alloc] initWithNibName:NSStringFromClass(self.class) bundle:[NSBundle mainBundle]];
 }
+- (void)xq_setupRightBarItemImage:(UIImage *)image
+                            block:(void (^)(id sender))block {
+    [self xq_setupRightBarItemImage:image tintColor:nil pressImage:nil block:block];
+}
 
 - (void)xq_setupRightBarItemImage:(UIImage *)image
-                         selector:(SEL)selector {
+                        tintColor:(UIColor *)tintColor
+                       pressImage:(UIImage *)pressImage
+                            block:(void (^)(id sender))block {
     if (!self.navigationController) {
+        return;
+    }
+    if (!image) {
         return;
     }
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:image forState:UIControlStateNormal];
-    button.tintColor = [UIColor xqThemeTextColor];
-    //    [button setImage:pressImage forState:UIControlStateHighlighted];
+    if (tintColor) {
+        button.tintColor = [UIColor lightTextColor];
+    }
+    if (pressImage) {
+        [button setImage:pressImage forState:UIControlStateHighlighted];
+    }
     button.frame = CGRectMake(0, 0, 20, 20);
-    [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem =
-    [[UIBarButtonItem alloc] initWithCustomView:button];
+    [button addBlockForControlEvents:UIControlEventTouchUpInside block:block];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 - (void)xq_displayViewController:(UIViewController *)viewController {
-    //    ASSERT_IS_MAIN_THREAD
+    ASSERT_IS_MAIN_THREAD
     viewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     viewController.view.frame = self.view.bounds;
     
@@ -65,27 +79,39 @@ SOFTWARE.
 }
 
 - (void)xq_addChildViewControllerIfNeed:(UIViewController *)viewController {
-    //    ASSERT_IS_MAIN_THREAD
+    ASSERT_IS_MAIN_THREAD
     if (![self.childViewControllers containsObject:viewController]) {
         [self addChildViewController:viewController];
         [viewController didMoveToParentViewController:self];
     }
 }
 
-- (void)xq_dismissSelf {
-    //    ASSERT_IS_MAIN_THREAD
+- (void)xq_removeSelf {
+    ASSERT_IS_MAIN_THREAD
     [self willMoveToParentViewController:nil];
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
 }
 
-- (void)xq_safeExitSelf {
-    //    ASSERT_IS_MAIN_THREAD
+- (void)xq_safePopSelf {
+    ASSERT_IS_MAIN_THREAD
     if (self.navigationController) {
         if (self.navigationController.childViewControllers.count > 1) {
             [self.navigationController popViewControllerAnimated:YES];
         } else if (self.navigationController.presentingViewController) {
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
+    } else if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)xq_safeDismissSelf {
+    if (self.navigationController) {
+        if (self.navigationController.presentingViewController) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        } else if (self.navigationController.childViewControllers.count > 1) {
+            [self.navigationController popViewControllerAnimated:YES];
         }
     } else if (self.presentingViewController) {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -102,6 +128,17 @@ SOFTWARE.
     UISwipeGestureRecognizer *swipeGesture =
     [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(xq_didSwipe:)];
     [self.view addGestureRecognizer:swipeGesture];
+}
+
+- (void)xq_setBackBarItemNoTitle {
+    if (!self.navigationController) {
+        return;
+    }
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc]initWithTitle:@""
+                                    style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:nil];
 }
 
 @end

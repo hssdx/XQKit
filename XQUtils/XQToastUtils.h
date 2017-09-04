@@ -37,14 +37,24 @@ typedef NS_ENUM(NSInteger, ToastLevel) {
     ToastLevelError,
 };
 
-#define ShowToast(format, ...) \
-[XQToastUtils show:format, ## __VA_ARGS__]
+#define ShowToastDelay(DELAY, FORMAT, ...) \
+[XQToastUtils showDelay:DELAY message:FORMAT, ## __VA_ARGS__]
 
-#define ShowWarnToast(format, ...) \
-[XQToastUtils showWarnning:format, ## __VA_ARGS__]
+#define ShowWarnDelay(DELAY, FORMAT, ...) \
+[XQToastUtils showWarnDelay:DELAY message:FORMAT, ## __VA_ARGS__]
 
-#define ShowErrorToast(format, ...) \
-[XQToastUtils showError:format, ## __VA_ARGS__]
+#define ShowErrorDelay(DELAY, FORMAT, ...) \
+[XQToastUtils showErrorDelay:DELAY message:FORMAT, ## __VA_ARGS__]
+
+
+#define ShowToast(FORMAT, ...) \
+[XQToastUtils show:FORMAT, ## __VA_ARGS__]
+
+#define ShowWarnToast(FORMAT, ...) \
+[XQToastUtils showWarn:FORMAT, ## __VA_ARGS__]
+
+#define ShowErrorToast(FORMAT, ...) \
+[XQToastUtils showError:FORMAT, ## __VA_ARGS__]
 
 #define MULTI_PARA_MSG(_MSG,_CONTENT) \
 va_list args; \
@@ -56,7 +66,11 @@ va_end (args);
 
 //显示提示视图, 默认显示在屏幕下方，2s后自动消失
 + (void)show:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2);
-+ (void)showWarnning:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2);
++ (void)showWarn:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2);
 + (void)showError:(NSString *)message, ... NS_FORMAT_FUNCTION(1,2);
+
++ (void)showDelay:(CGFloat)delay message:(NSString *)message, ... NS_FORMAT_FUNCTION(2,3);
++ (void)showWarnDelay:(CGFloat)delay message:(NSString *)message, ...NS_FORMAT_FUNCTION(2,3);
++ (void)showErrorDelay:(CGFloat)delay message:(NSString *)message, ... NS_FORMAT_FUNCTION(2,3);
 
 @end

@@ -1,7 +1,7 @@
 /* 
 MIT License
 
-Copyright (c) 2017 xunquan
+Copyright (c) 2017 Xiong
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  XQConstants.m
-//  XQKit
+//  NSArray+XQUtils.h
+//  xunquan
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by xiongxunquan on 2016/12/5.
+//  Copyright © 2016年 xunquan inc.. All rights reserved.
 //
 
-#import "XQConstants.h"
+#import <Foundation/Foundation.h>
 
-NSString *const XQNotifyDemo = @"XQNotifyDemo";
-NSString *const XQEventDemo = @"XQEventDemo";
+@interface NSArray (XQUtils)
 
+- (NSDictionary *)xq_dictionaryForKeypath:(NSString *)keypath;
+- (NSMutableDictionary *)xq_mutableDictionaryForKeypath:(NSString *)keypath;
+- (NSArray *)xq_compact:(id (^)(id obj))block;
+
+@end

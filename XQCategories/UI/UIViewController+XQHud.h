@@ -22,25 +22,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 //
-//  NSDate+XQUtils.h
-//  IKSarahah
+//  UIViewController+XQHud.h
+//  xq
 //
-//  Created by quanxiong on 2017/7/25.
-//  Copyright © 2017年 com.xq. All rights reserved.
+//  Created by xiongxunquan on 2017/5/17.
+//  Copyright © 2017年 xunquan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NSDate (XQUtils)
+@class MBProgressHUD;
 
-- (NSString *)xqPrettyPassingFormat;
-- (NSString *)xqPrettyPassingFormat:(BOOL)showYearIfThisYear;
+@interface UIViewController (XQHud)
 
-+ (NSTimeInterval)xq_safe_server_timestamp:(NSTimeInterval)timestamp;
-+ (NSNumber *)xq_safe_server_timestamp_number:(NSNumber *)timestamp;
-
-+ (NSDate *)xq_date_with_timestamp:(NSTimeInterval)timestamp;
-+ (NSDate *)xq_date_with_number:(NSNumber *)number;
-+ (NSTimeInterval)xq_mm_timestap_with_date:(NSDate *)date;
+- (UIView *)xq_hudHost;
+- (MBProgressHUD *)xq_showHud;
+- (MBProgressHUD *)xq_showHudWithText:(NSString *)text;
+- (void)xq_hideHud;
+- (void)xq_hideHudDelay:(CGFloat)delay;
 
 @end
